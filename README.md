@@ -11,3 +11,5 @@ Created some mind maps to keep the knowledge graph in your minds and would also 
 
 # REST API Tutorials in AWS to invoke endpoint on Amazon Sagemaker
 
+- [SageMaker JumpStart Foundation Models - HuggingFace Text2Text Generation](https://github.com/bertieucbs/genai-learning/tree/main/sagemaker_jumpstart_foundation_models/Text2TextGenerationFlanT5)
+
