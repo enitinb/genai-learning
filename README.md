@@ -8,3 +8,6 @@ Created some mind maps to keep the knowledge graph in your minds and would also 
 
 - [MindMaps on Generative AI](https://github.com/bertieucbs/genai-learning/tree/main/mindmaps) 
 
+
+# REST API Tutorials in AWS to invoke endpoint on Amazon Sagemaker
+
