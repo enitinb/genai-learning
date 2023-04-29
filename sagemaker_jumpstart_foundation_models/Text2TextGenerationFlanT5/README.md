@@ -2,7 +2,7 @@
 
 This will use the notebook from aws/amazon-sagemaker-examples git repo [text2text-generation-flan-t5.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart-foundation-models/text2text-generation-flan-t5.ipynb)
 
-## Pre-req
+## Pre-requisite
 - AWS Accounts
 - This will incur cost for AWS resources you use and also keep it running. To keep your cost at minimum you can always shutdown/tear down your systems. 
 
