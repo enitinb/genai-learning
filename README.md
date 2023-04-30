@@ -13,3 +13,12 @@ Created some mind maps to keep the knowledge graph in your minds and would also 
 
 - [SageMaker JumpStart Foundation Models - HuggingFace Text2Text Generation](https://github.com/bertieucbs/genai-learning/tree/main/sagemaker_jumpstart_foundation_models/Text2TextGenerationFlanT5)
 
+
+# Fundamentals Learnings
+
+Below are some handpicked resources I found useful where you can learn some fundamentals 
+
+- MIT Introduction to Deep Learning | 6.S191 - https://www.youtube.com/watch?v=QDX-1M5Nj7s
+
+
+
