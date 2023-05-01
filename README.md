@@ -22,3 +22,10 @@ Below are some handpicked resources I found useful where you can learn some fund
 
 
 
+
+# Misc. 
+
+-  Why AI Is Incredibly Smart — and Shockingly Stupid | Yejin Choi | TED  - https://www.youtube.com/watch?v=SvBR0OGT5VI
+
+
+
