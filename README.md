@@ -33,9 +33,9 @@ Below are some handpicked resources I found useful where you can learn some fund
 
 # Misc. 
 
--  Why AI Is Incredibly Smart — and Shockingly Stupid | Yejin Choi | TED  - https://www.youtube.com/watch?v=SvBR0OGT5VI
--  MiniGPT-4: ChatGPT for your images - https://pub.towardsai.net/minigpt-4-chatgpt-for-your-images-ac111a5b288a
-- Beyond ChatGPT: The Future of Generative AI for Enterprises - https://www.gartner.com/en/articles/beyond-chatgpt-the-future-of-generative-ai-for-enterprises
+-  [Why AI Is Incredibly Smart — and Shockingly Stupid | Yejin Choi | TED](https://www.youtube.com/watch?v=SvBR0OGT5VI)
+-  [MiniGPT-4: ChatGPT for your images](https://pub.towardsai.net/minigpt-4-chatgpt-for-your-images-ac111a5b288a)
+- [Beyond ChatGPT: The Future of Generative AI for Enterprises](https://www.gartner.com/en/articles/beyond-chatgpt-the-future-of-generative-ai-for-enterprises)
 
 
 
