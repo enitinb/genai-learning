@@ -2,6 +2,13 @@
 
 This will be provide some useful information and content as I learn more and more about Generative AI space. Gather information from different sources and also showing some sample work which I have done so that you can learn and get deeper as you would like. 
 
+**Where Generative AI sits within AI**
+
+<img src="images/WhereGenerativeAIsitswithinAI.jpg"  width="50%" height="20%">
+
+[Source](https://blog.nami.gg/p/how-generative-ai-can-charge-web3)
+
+
 # MindMaps
 
 Created some mind maps to keep the knowledge graph in your minds and would also aid in easy ramp ups. Will keep updating it. 
