@@ -27,8 +27,10 @@ Below are some handpicked resources I found useful where you can learn some fund
 
 - [Use Amazon SageMaker to Build Generative AI Applications- AWS Virtual Workshop](https://www.youtube.com/watch?v=DgTHEvvpvMI)
 - [MIT Introduction to Deep Learning | 6.S191](https://www.youtube.com/watch?v=QDX-1M5Nj7s)
-
-
+- [Introduction to Facebook AI Similarity Search (Faiss)](https://www.pinecone.io/learn/faiss-tutorial/)
+- [What is Similarity Search?](https://www.pinecone.io/learn/what-is-similarity-search/)
+- [What is a Vector Database?](https://www.pinecone.io/learn/vector-database/)
+- [Vector Embeddings for Developers: The Basics](https://www.pinecone.io/learn/vector-embeddings-for-developers/)
 
 
 # Misc. 
