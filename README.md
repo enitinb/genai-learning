@@ -25,6 +25,7 @@ Created some mind maps to keep the knowledge graph in your minds and would also 
 
 Below are some handpicked resources I found useful where you can learn some fundamentals 
 
+- [How ChatGPT actually works](https://www.assemblyai.com/blog/how-chatgpt-actually-works/)
 - [Use Amazon SageMaker to Build Generative AI Applications- AWS Virtual Workshop](https://www.youtube.com/watch?v=DgTHEvvpvMI)
 - [MIT Introduction to Deep Learning | 6.S191](https://www.youtube.com/watch?v=QDX-1M5Nj7s)
 - [Introduction to Facebook AI Similarity Search (Faiss)](https://www.pinecone.io/learn/faiss-tutorial/)
