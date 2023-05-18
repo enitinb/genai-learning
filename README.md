@@ -33,6 +33,10 @@ Below are some handpicked resources I found useful where you can learn some fund
 - [What is a Vector Database?](https://www.pinecone.io/learn/vector-database/)
 - [Vector Embeddings for Developers: The Basics](https://www.pinecone.io/learn/vector-embeddings-for-developers/)
 
+# Links of interest
+- [Metric: rouge](https://huggingface.co/spaces/evaluate-metric/rouge)
+- [Prompt Engineering Guide](https://www.promptingguide.ai/)
+- [HELM](https://crfm.stanford.edu/helm/latest/)
 
 # Misc. 
 
