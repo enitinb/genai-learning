@@ -5,6 +5,27 @@ This demo show cases RAG use case using Amazon Bedrock model Titan. The code use
 1. Parses pdf, creates embedding and stores to in-memory Vector Store FAISS. You can use any vector store of your choice. This is for demo 
 2. Takes user prompts, searches the store, gets the result and pass to LLM for final output. 
 
+# You can list of foundation models in your Amazon Bedrock by running the following CLI. 
+
+```
+aws bedrock list-foundation-models --region <<region_name> --endpoint-url <<end_point>
+```
+
+It will provide following output which will have the list model details under modelSummaries
+
+```
+{
+    "modelSummaries": [
+        {
+            "modelArn": "<<modelArn>",
+            "modelId": "<<modelId>>"
+        }
+    ]
+}
+```
+
+**Note** : Please refer to the AWS CLI version as mentioned in the Prerequisites section. 
+
 
 # Prerequisites
 
