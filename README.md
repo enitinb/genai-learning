@@ -23,6 +23,19 @@ Created some mind maps to keep the knowledge graph in your minds and would also 
 
 # Fundamentals Learnings
 
+Some starters
+
+- [Understanding Large Language Models](https://medium.com/mlearning-ai/understanding-large-language-models-6664be71988e) - Gentle intro
+- [Generative AI with Large Language Models](https://www.coursera.org/learn/generative-ai-with-llms/) - Free course on coursera, one of the best to start with
+- [LLM University](https://docs.cohere.com/docs/llmu)
+- [Prompt Engineering Complete Guide](https://medium.com/@fareedkhandev/prompt-engineering-complete-guide-2968776f0431)
+- [Introduction to Large Language Models and the Transformer Architecture](https://rpradeepmenon.medium.com/introduction-to-large-language-models-and-the-transformer-architecture-534408ed7e61)
+- [Choosing the Right Embedding Model: A Guide for LLM Applications](https://medium.com/@ryanntk/choosing-the-right-embedding-model-a-guide-for-llm-applications-7a60180d28e3)
+- [What is a vector database?](https://technotes2023.medium.com/what-is-a-vector-database-fa1b649c7755)
+- [Vector Databases: A Beginner’s Guide!](https://medium.com/data-and-beyond/vector-databases-a-beginners-guide-b050cbbe9ca0)
+- [RAG vs Finetuning — Which Is the Best Tool to Boost Your LLM Application?](https://towardsdatascience.com/rag-vs-finetuning-which-is-the-best-tool-to-boost-your-llm-application-94654b1eaba7)
+- 
+
 Below are some handpicked resources I found useful where you can learn some fundamentals 
 
 - [How ChatGPT actually works](https://www.assemblyai.com/blog/how-chatgpt-actually-works/)
