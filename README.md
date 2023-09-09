@@ -15,12 +15,6 @@ Created some mind maps to keep the knowledge graph in your minds and would also 
 
 - [MindMaps on Generative AI](https://github.com/bertieucbs/genai-learning/tree/main/mindmaps) 
 
-
-# Tutorials in AWS for Generative AI JumpStart Foundation Models
-
-- [AWS JumpStart Foundation Models](https://github.com/aws/amazon-sagemaker-examples/tree/main/introduction_to_amazon_algorithms/jumpstart-foundation-models)
-
-
 # Fundamentals Learnings
 
 Some starters
@@ -45,6 +39,10 @@ Below are some handpicked resources I found useful where you can learn some fund
 - [What is Similarity Search?](https://www.pinecone.io/learn/what-is-similarity-search/)
 - [What is a Vector Database?](https://www.pinecone.io/learn/vector-database/)
 - [Vector Embeddings for Developers: The Basics](https://www.pinecone.io/learn/vector-embeddings-for-developers/)
+
+# Tutorials in AWS for Generative AI JumpStart Foundation Models
+
+- [AWS JumpStart Foundation Models](https://github.com/aws/amazon-sagemaker-examples/tree/main/introduction_to_amazon_algorithms/jumpstart-foundation-models)
 
 # Links of interest
 - [Metric: rouge](https://huggingface.co/spaces/evaluate-metric/rouge)
