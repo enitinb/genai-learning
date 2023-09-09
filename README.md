@@ -16,9 +16,9 @@ Created some mind maps to keep the knowledge graph in your minds and would also 
 - [MindMaps on Generative AI](https://github.com/bertieucbs/genai-learning/tree/main/mindmaps) 
 
 
-# REST API Tutorials in AWS to invoke endpoint on Amazon Sagemaker
+# Tutorials in AWS for Generative AI JumpStart Foundation Models
 
-- [SageMaker JumpStart Foundation Models - HuggingFace Text2Text Generation](https://github.com/bertieucbs/genai-learning/tree/main/sagemaker_jumpstart_foundation_models/Text2TextGenerationFlanT5)
+- [AWS JumpStart Foundation Models](https://github.com/aws/amazon-sagemaker-examples/tree/main/introduction_to_amazon_algorithms/jumpstart-foundation-models)
 
 
 # Fundamentals Learnings
