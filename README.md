@@ -28,7 +28,6 @@ Some starters
 - [What is a vector database?](https://technotes2023.medium.com/what-is-a-vector-database-fa1b649c7755)
 - [Vector Databases: A Beginner’s Guide!](https://medium.com/data-and-beyond/vector-databases-a-beginners-guide-b050cbbe9ca0)
 - [RAG vs Finetuning — Which Is the Best Tool to Boost Your LLM Application?](https://towardsdatascience.com/rag-vs-finetuning-which-is-the-best-tool-to-boost-your-llm-application-94654b1eaba7)
-- 
 
 Below are some handpicked resources I found useful where you can learn some fundamentals 
 
