@@ -24,7 +24,7 @@ Titan
    } 
 }
 ```
-Claud
+Claude
 ```
 {
   "modelId": "anthropic.claude-v2",
@@ -37,7 +37,7 @@ Claud
 In this util I have written two versions to handle this. With this your calling code will only call the helper function **interactWithLLM(prompt,llm_type) --> lly_type value 'titan' or 'claud'**. example shown below
 
 ```
-interactWithLLM(prompt,'claud')
+interactWithLLM(prompt,'claude')
 interactWithLLM(prompt,'titan')
 ```
 
@@ -52,7 +52,7 @@ You may still have to do some conditional coding based on the response is provid
     if type == 'titan':
         response_text_titan = response_body.get("results")[0].get("outputText")
         return response_text_titan
-    elif type == 'claud':
-        response_text_claud = response_body.get('completion')
-        return response_text_claud
+    elif type == 'claude':
+        response_text_claude = response_body.get('completion')
+        return response_text_claude
 ```
