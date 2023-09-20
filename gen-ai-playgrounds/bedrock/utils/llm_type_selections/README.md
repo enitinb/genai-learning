@@ -40,3 +40,14 @@ In this util I have written two versions to handle this.
 
 1. Python [ConfigParser](https://docs.python.org/3/library/configparser.html) module - This module provides the ConfigParser class which implements a basic configuration language which provides a structure similar to what’s found in Microsoft Windows INI files. You can use this to write Python programs which can be customized by end users easily. [llmTypeSelect_Configparser.py](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llmTypeSelect_Configparser.py) and configuration file [llm_config.ini](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_config.ini). This reduces a lot of conditional coding for you. 
 2. Regular python code to manage the selection. [llmTypeSelect.py](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llmTypeSelect.py)
+
+You may still have to do some conditional coding based on the response is provided by the iteration over objects. 
+
+```
+    if type == 'titan':
+        response_text_titan = response_body.get("results")[0].get("outputText")
+        return response_text_titan
+    elif type == 'claud':
+        response_text_claud = response_body.get('completion')
+        return response_text_claud
+```
