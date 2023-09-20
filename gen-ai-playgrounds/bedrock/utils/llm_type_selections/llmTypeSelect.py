@@ -40,7 +40,7 @@ def interactWithLLM(prompt,type):
 
 		return response_text_titan
 	
-	elif type == 'claud':
+	elif type == 'claude':
 		print("**THE LLM TYPE IS -->" + type)
 		body = json.dumps({"prompt": prompt,
                  "max_tokens_to_sample":300,
@@ -56,13 +56,13 @@ def interactWithLLM(prompt,type):
 		response = bedrock_client.invoke_model(body=body, modelId=modelId, accept=accept, contentType=contentType)
 		response_body = json.loads(response.get('body').read())
 
-		response_text_claud = response_body.get('completion')
+		response_text_claude = response_body.get('completion')
 
-		return response_text_claud
+		return response_text_claude
 	
 
 
-response = interactWithLLM(prompt,'claud')
+response = interactWithLLM(prompt,'claude')
 
 print("RESPONSE : " + response)
 

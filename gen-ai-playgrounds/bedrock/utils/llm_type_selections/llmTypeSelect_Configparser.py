@@ -37,14 +37,14 @@ def interactWithLLM(prompt,type):
     if type == 'titan':
         response_text_titan = response_body.get("results")[0].get("outputText")
         return response_text_titan
-    elif type == 'claud':
-        response_text_claud = response_body.get('completion')
-        return response_text_claud
+    elif type == 'claude':
+        response_text_claude = response_body.get('completion')
+        return response_text_claude
 	
 
 
 # Test code
-response = interactWithLLM(prompt,'claud')
+response = interactWithLLM(prompt,'claude')
 
 print("RESPONSE : " + response)
 
