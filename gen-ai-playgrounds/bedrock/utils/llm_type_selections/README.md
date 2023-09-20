@@ -34,7 +34,12 @@ Claud
 }
 ```
 
-In this util I have written two versions to handle this. 
+In this util I have written two versions to handle this. With this your calling code will only call the helper function as below
+
+```
+interactWithLLM(prompt,'claud')
+interactWithLLM(prompt,'titan')
+```
 
 **Note** : Added for Titan and Claude as of now. You can easily add support for other LLM from Amazon Bedrock
 
