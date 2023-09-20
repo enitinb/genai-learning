@@ -34,7 +34,7 @@ Claud
 }
 ```
 
-In this util I have written two versions to handle this. With this your calling code will only call the helper function as below
+In this util I have written two versions to handle this. With this your calling code will only call the helper function *interactWithLLM(prompt,llm_type) --> lly_type value 'titan' or 'claud*. example shown below
 
 ```
 interactWithLLM(prompt,'claud')
