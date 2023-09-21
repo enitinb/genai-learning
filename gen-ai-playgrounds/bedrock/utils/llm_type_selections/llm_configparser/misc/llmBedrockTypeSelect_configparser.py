@@ -32,7 +32,10 @@ def interactWithLLM(prompt,type):
     response = bedrock_client.invoke_model(
         body=body, modelId=modelId, accept=accept, contentType=contentType
     )
+
+    print("response---" + str(response))
     response_body = json.loads(response.get("body").read())
+    
 
     if type == 'titan':
         response_text_titan = response_body.get("results")[0].get("outputText")
@@ -40,13 +43,16 @@ def interactWithLLM(prompt,type):
     elif type == 'claude':
         response_text_claude = response_body.get('completion')
         return response_text_claude
+    elif type == 'jurrasic':
+        response_text_jurrasic = response_body.get('completions')[0].get("data").get("text")
+        return response_text_jurrasic
 	
 
 
 # Test code
 response = interactWithLLM(prompt,'claude')
 
-print("RESPONSE : " + response)
+print("RESPONSE from : claude " + response)
 
 time.sleep(2)
 
@@ -54,4 +60,11 @@ print("*******************")
 
 response = interactWithLLM(prompt,'titan')
 
-print("RESPONSE : " + response)
+print("RESPONSE from : titan " + response)
+
+
+print("*******************")
+
+response = interactWithLLM(prompt,'jurrasic')
+
+print("RESPONSE from : jurrasic " + response)
