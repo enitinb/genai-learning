@@ -25,8 +25,8 @@ print("RESPONSE from : titan " + response)
 
 print("*******************")
 
-response = amz_brck_llm_cfg.interactWithLLM(prompt,'jurrasic',bedrock_client)
+response = amz_brck_llm_cfg.interactWithLLM(prompt,'jurassic',bedrock_client)
 
-print("RESPONSE from : jurrasic " + response)
+print("RESPONSE from : jurassic " + response)
 
 

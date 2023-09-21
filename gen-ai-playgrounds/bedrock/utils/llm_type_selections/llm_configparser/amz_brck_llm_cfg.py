@@ -54,6 +54,6 @@ def interactWithLLM(prompt,type,bedrock_client):
     elif type == 'claude':
         response_text_claude = response_body.get('completion')
         return response_text_claude
-    elif type == 'jurrasic':
-        response_text_jurrasic = response_body.get('completions')[0].get("data").get("text")
-        return response_text_jurrasic
+    elif type == 'jurassic':
+        response_text_jurassic = response_body.get('completions')[0].get("data").get("text")
+        return response_text_jurassic

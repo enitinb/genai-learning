@@ -60,7 +60,7 @@ def interactWithLLM(prompt,type,bedrock_client):
 
 		return response_text_claude
 	
-	elif type == 'jurrasic':
+	elif type == 'jurassic':
 		print("**THE LLM TYPE IS -->" + type)
 		body = json.dumps({"prompt":prompt,"maxTokens":200,"temperature":0,"topP":1,"stopSequences":[],"countPenalty":{"scale":0},"presencePenalty":{"scale":0},"frequencyPenalty":{"scale":0}}) 
 		modelId = 'ai21.j2-ultra' # change this to use a different version from the model provider
@@ -71,6 +71,6 @@ def interactWithLLM(prompt,type,bedrock_client):
 		response_body = json.loads(response.get('body').read())
 
 
-		response_text_jurrasic = response_body.get('completions')[0].get("data").get("text")
+		response_text_jurassic = response_body.get('completions')[0].get("data").get("text")
 
-		return response_text_jurrasic
+		return response_text_jurassic

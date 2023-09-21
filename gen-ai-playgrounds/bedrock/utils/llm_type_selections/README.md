@@ -1,12 +1,12 @@
 # LLM Type selection in code
 
-Amazon Bedrock is a fully managed service that makes foundation models (FMs) from Amazon and leading AI startups available through an API, so you can choose from various FMs to find the model that's best suited for your use case. With the Amazon Bedrock serverless experience, you can quickly get started, easily experiment with FMs, privately customize FMs with your own data, and seamlessly integrate and deploy them into your applications using AWS tools and capabilities. 
+[Amazon Bedrock](https://aws.amazon.com/bedrock/) is a fully managed service that makes foundation models (FMs) from Amazon and leading AI startups available through an API, so you can choose from various FMs to find the model that's best suited for your use case. With the Amazon Bedrock serverless experience, you can quickly get started, easily experiment with FMs, privately customize FMs with your own data, and seamlessly integrate and deploy them into your applications using AWS tools and capabilities. 
  
-Different type of foundation models have different parameters and also response structure with which you can interact. In this we will look into Amazon Titan, Claude and Jurrasic as an example from a python code perspective. 
+Different type of foundation models have different request parameters and also response structure with which you can interact. In this we will look into [Amazon Titan](https://aws.amazon.com/bedrock/titan/), [Anthropic Claude](https://aws.amazon.com/bedrock/claude/) and AI21labs Jurrasic-2 as an example from a python code perspective. 
 
 Below are examples of API requests. Please note "body" and how the request structure can differ.
 
-Titan 
+Amazon Titan 
 
 ```
 {
@@ -25,7 +25,7 @@ Titan
 }
 ```
 
-Claude
+Anthropic Claude
 ```
 {
   "modelId": "anthropic.claude-v2",
@@ -35,7 +35,7 @@ Claude
 }
 ```
 
-Jurrasic
+AI21labs Jurassic-2
 ```
 {
   "modelId": "ai21.j2-ultra",
@@ -70,9 +70,9 @@ Below are the details of both modules **amz_brck_llm_cfg**  and **amz_brck_llm**
 1. **amz_brck_llm_cfg** :  Python [ConfigParser](https://docs.python.org/3/library/configparser.html) module - This module provides the ConfigParser class which implements a basic configuration language which provides a structure similar to what’s found in Microsoft Windows INI files. You can use this to write Python programs which can be customized by end users easily. [amz_brck_llm_cfg](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_configparser/amz_brck_llm_cfg.py) is the module file which refers to the configuration file [llm_config.ini](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_configparser/llm_config.ini). This reduces a lot of conditional coding for you. You can a test client file [testClient_amz_brck_llm_cfg.py](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_configparser/testClient_amz_brck_llm_cfg.py) to test the module
 2. **amz_brck_llm** : [amz_brck_llm](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_python/amz_brck_llm.py) is the module file which uses mostly conditional statements. You can a test client file [testClient_amz_brck_llm.py](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_python/testClient_amz_brck_llm.py) to test the module
 
-**Note** : Added for Titan, Claude and Jurrassic as of now. You can easily add support for other LLM from Amazon Bedrock
+**Note** : Added for Titan, Claude and Jurassic-2 as of now. You can easily add support for other LLM from Amazon Bedrock
 
-You may still have to do some conditional coding based on the response is provided by the iteration over objects. Below is an example from the helper code which uses ConfigParser
+You may still have to do some conditional coding based on the response is provided by the iteration over objects. Below is an example from the helper code which uses ConfigParser. Refer to the modules mentioned above. 
 
 ```
     if type == 'titan':
@@ -81,7 +81,7 @@ You may still have to do some conditional coding based on the response is provid
     elif type == 'claude':
         response_text_claude = response_body.get('completion')
         return response_text_claude
-    elif type == 'jurrasic':
+    elif type == 'jurassic':
         response_text_jurrasic = response_body.get('completions')[0].get("data").get("text")
         return response_text_jurrasic
 ```
