@@ -68,7 +68,7 @@ Note :
 Below are the details of both modules **amz_brck_llm_cfg**  and **amz_brck_llm** 
 
 1. **amz_brck_llm_cfg** :  Python [ConfigParser](https://docs.python.org/3/library/configparser.html) module - This module provides the ConfigParser class which implements a basic configuration language which provides a structure similar to what’s found in Microsoft Windows INI files. You can use this to write Python programs which can be customized by end users easily. [amz_brck_llm_cfg](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_configparser/amz_brck_llm_cfg.py) is the module file which refers to the configuration file [llm_config.ini](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_configparser/llm_config.ini). This reduces a lot of conditional coding for you. You can a test client file [testClient_amz_brck_llm_cfg.py](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_configparser/testClient_amz_brck_llm_cfg.py) to test the module
-2. **amz_brck_llm** :  
+2. **amz_brck_llm** : [amz_brck_llm](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_configparser/amz_brck_llm_cfg.py) is the module file which uses mostly conditional statements. You can a test client file [testClient_amz_brck_llm.py](https://github.com/bertieucbs/genai-learning/blob/main/gen-ai-playgrounds/bedrock/utils/llm_type_selections/llm_configparser/testClient_amz_brck_llm_cfg.py) to test the module
 
 **Note** : Added for Titan, Claude and Jurrassic as of now. You can easily add support for other LLM from Amazon Bedrock
 
