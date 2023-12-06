@@ -101,18 +101,17 @@ You may still have to do some conditional coding based on the response is provid
 Also some of the Models may require certain format of the prompt. Example Claude and Llama. The module has that support as an example 
 
 ```
-    if type == 'claude':
-        formatted_prompt_claud = format_text_claud(prompt)
-        print("*** Formatted text for claude ***")
-        print("\n")
-        print(formatted_prompt_claud)
-        print("\n")
-        prompt = formatted_prompt_claud
-    if type == 'llama':
-        formatted_text_llama = format_text_llama(prompt)
-        print("*** Formatted text for llama ***")
-        print("\n")
-        print(formatted_text_llama)
-        print("\n")
-        prompt = formatted_text_llama
+def format_text_claude(text):
+    prefix = "Human: " 
+    suffix = " Assistant: "
+    
+    formatted_text = prefix + text + suffix
+    return formatted_text
+
+def format_text_llama(text):
+    prefix = "[INST] " 
+    suffix = " [/INST]"
+    
+    formatted_text = prefix + text + suffix
+    return formatted_text
 ```
