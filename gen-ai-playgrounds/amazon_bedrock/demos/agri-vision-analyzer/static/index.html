@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const file = fileInput.files[0];
                 if (!file) return alert("Please upload a video file.");
 
-                const presignedUrlResponse = await fetch('https://0gwsy3ma2k.execute-api.us-west-2.amazonaws.com/prod/get-presigned-url', {
+                const presignedUrlResponse = await fetch('https://abc.execute-api.us-west-2.amazonaws.com/prod/get-presigned-url', {
                     method: 'POST',
                     body: JSON.stringify({ filename: file.name, contentType: file.type })
                 });
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
             analyzeModal.show();
             analyzeModal._element.setAttribute('inert', 'true'); // ✅ Prevent focus issues
 
-            const response = await fetch('https://0gwsy3ma2k.execute-api.us-west-2.amazonaws.com/prod/analyze', {
+            const response = await fetch('https://abc.execute-api.us-west-2.amazonaws.com/prod/analyze', {
                 method: 'POST',
                 body: JSON.stringify({ fileKey: uploadedFileKey, prompt: customPrompt }),
             });
