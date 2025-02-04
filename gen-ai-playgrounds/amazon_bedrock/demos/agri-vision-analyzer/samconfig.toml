@@ -1,0 +1,10 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "agri-vision-analyzer"
+resolve_s3 = true
+s3_prefix = "agri-vision-analyzer"
+region = "us-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "StageName=\"prod\""
+image_repositories = []

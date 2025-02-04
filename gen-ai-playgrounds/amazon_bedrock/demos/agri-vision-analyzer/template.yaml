@@ -1,0 +1,99 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Agriculture Video Analysis Application with Pre-Signed S3 URLs
+
+Parameters:
+  StageName:
+    Type: String
+    Default: prod
+    Description: API Gateway stage name
+
+Globals:
+  Function:
+    Timeout: 300
+    MemorySize: 1024
+    Runtime: python3.12   
+    Environment:
+      Variables:
+        REGION: us-east-1
+        UPLOAD_BUCKET: !Ref UploadBucket
+
+Resources:
+  # S3 Bucket for video uploads
+  UploadBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ${AWS::StackName}-uploads-${AWS::AccountId}
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ["*"]
+            AllowedMethods: ["GET", "PUT", "POST", "DELETE"]
+            AllowedOrigins: ["*"]
+            ExposedHeaders: ["ETag", "x-amz-request-id"]
+            MaxAge: 3000
+      LifecycleConfiguration:
+        Rules:
+          - Id: DeleteOldUploads
+            Status: Enabled
+            ExpirationInDays: 1
+
+  # Lambda Function for Generating Pre-Signed URLs
+  GeneratePresignedUrlFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/  # ✅ Reference to folder containing Lambda functions
+      Handler: generate_presigned_url.lambda_handler  # ✅ This points to 'generate_presigned_url.py'
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref UploadBucket
+        - S3CrudPolicy:
+            BucketName: !Ref UploadBucket
+      Events:
+        PresignedUrlEvent:
+          Type: Api
+          Properties:
+            Path: /get-presigned-url
+            Method: post
+            RestApiId: !Ref ApiGateway
+
+  # Lambda Function for Video Analysis
+  VideoAnalysisFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/  # ✅ Reference to folder containing Lambda functions
+      Handler: analyze_video.lambda_handler  # ✅ This points to 'analyze_video.py'
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref UploadBucket
+        - Statement:
+          - Effect: Allow
+            Action:
+              - bedrock:InvokeModel
+            Resource: 
+              - !Sub arn:aws:bedrock:${AWS::Region}::foundation-model/us.amazon.nova-lite-v1:0
+      Events:
+        AnalyzeEvent:
+          Type: Api
+          Properties:
+            Path: /analyze
+            Method: post
+            RestApiId: !Ref ApiGateway
+
+  # API Gateway
+  ApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: !Ref StageName
+      Cors:
+        AllowMethods: "'*'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+
+Outputs:
+  ApiUrl:
+    Description: URL of the API endpoint
+    Value: !Sub https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${StageName}/
+  
+  UploadBucketName:
+    Description: Name of the S3 bucket for uploads
+    Value: !Ref UploadBucket
