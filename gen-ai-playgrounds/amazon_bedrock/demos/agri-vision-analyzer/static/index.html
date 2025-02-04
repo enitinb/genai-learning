@@ -25,7 +25,7 @@
         border-radius: 10px;
     }
 
-    /* ✅ Wrap text properly without horizontal scrolling */
+
     #resultContent, #modalResultContent {
         white-space: pre-wrap;      /* Preserve new lines */
         word-wrap: break-word;      /* Force long words to wrap */
@@ -36,7 +36,7 @@
         padding: 10px;
         background: #f8f9fa;
         border-radius: 5px;
-        overflow-x: hidden;         /* ✅ Hides horizontal scrolling completely */
+        overflow-x: hidden;         
     }
 
     .upload-area {
@@ -121,7 +121,7 @@
         </div>
     </div>
 
-    <!-- ✅ Uploading Modal -->
+    <!-- Uploading Modal -->
     <div class="modal fade modal-upload" id="uploadModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center">
@@ -133,7 +133,7 @@
         </div>
     </div>
 
-    <!-- ✅ Analyzing Modal -->
+    <!-- Analyzing Modal -->
     <div class="modal fade modal-analyze" id="analyzeModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center">
@@ -145,7 +145,7 @@
         </div>
     </div>
 
-    <!-- ✅ Result Modal -->
+    <!-- Result Modal -->
     <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -190,12 +190,12 @@ document.addEventListener('DOMContentLoaded', function () {
             videoPreview.src = URL.createObjectURL(file);
             analyzeBtn.disabled = false;
             
-            // ✅ Reset results when new file is selected
+            // Reset results when new file is selected
             resultContent.innerHTML = "";
             modalResultContent.innerHTML = "";
             resultCard.style.display = 'none';
 
-            // ✅ Clear old uploaded file key to ensure new upload happens
+            // Clear old uploaded file key to ensure new upload happens
             uploadedFileKey = null;
         }
     }
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             analyzeModal.show();
-            analyzeModal._element.setAttribute('inert', 'true'); // ✅ Prevent focus issues
+            analyzeModal._element.setAttribute('inert', 'true'); // Prevent focus issues
 
             const response = await fetch('https://abc.execute-api.us-west-2.amazonaws.com/prod/analyze', {
                 method: 'POST',
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
             modalResultContent.innerHTML = resultContent.innerHTML = `${data.raw_response}`;
 
             analyzeModal.hide();
-            analyzeModal._element.removeAttribute('inert'); // ✅ Restore modal focusability
+            analyzeModal._element.removeAttribute('inert'); // Restore modal focusability
             resultModal.show();
             resultCard.style.display = 'block';
         } catch (error) {

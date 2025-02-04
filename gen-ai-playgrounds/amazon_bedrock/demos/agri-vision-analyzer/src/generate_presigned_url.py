@@ -14,7 +14,7 @@ def lambda_handler(event, context):
 
         file_key = f"uploads/{uuid.uuid4()}_{filename}"
 
-        # ✅ Generate pre-signed URL valid for 15 minutes
+        # Generate pre-signed URL valid for 15 minutes
         presigned_url = s3.generate_presigned_url(
             'put_object',
             Params={'Bucket': UPLOAD_BUCKET, 'Key': file_key, 'ContentType': content_type},
