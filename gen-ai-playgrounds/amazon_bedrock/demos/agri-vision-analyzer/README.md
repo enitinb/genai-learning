@@ -2,7 +2,11 @@
 
 > **Important Note**: This project demonstrates how to integrate Amazon Bedrock's Nova video understanding capabilities into a real-world application. While fully functional, this deployment guide is intended for getting started and proof-of-concept purposes. For production deployments, additional considerations such as enhanced security controls, CI/CD pipelines, monitoring, high availability, and other enterprise requirements should be implemented based on your specific needs.
 
-AgriVision Analyzer is a serverless web application that leverages Amazon Bedrock's Claude 3 Vision model (Nova-Lite) to analyze agricultural videos. The application provides an intuitive interface for uploading videos, customizing analysis prompts, and maintaining a history of all analyses performed.
+AgriVision Analyzer is a serverless web application that leverages  Amazon Bedrock's Nova-Lite to analyze agricultural videos. The application provides an intuitive interface for uploading videos, customizing analysis prompts, and maintaining a history of all analyses performed.
+
+Amazon Nova Understanding Models are multimodal understanding models, that means they support multimodal inputs such as images, videos, and documents to infer and answer question based on the content provided. The Amazon Nova model family is equipped with novel vision capabilities that enable the model to comprehend and analyze images, documents, and videos thereby realizing multimodal understanding use cases. The Amazon Nova models allow you to include a single video in the payload, which can be provided either in base64 format or through an Amazon S3 URI. When using the base64 method, the overall payload size must remain within 25MB. However, you can specify an Amazon S3 URI for video understanding. This approach enables you to leverage the model for longer videos (up to 1GB in size) without being constrained by the overall payload size limitation. Amazon Nova models can analyze the passed video and answer questions, classify a video, and summarize information in the video based on provided instructions.
+
+Reference : https://docs.aws.amazon.com/nova/latest/userguide/modalities.html 
 
 ## Features
 
