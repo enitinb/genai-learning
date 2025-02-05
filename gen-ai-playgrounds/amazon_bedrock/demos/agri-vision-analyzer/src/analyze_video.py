@@ -1,9 +1,12 @@
 import json
 import boto3
 import os
+from datetime import datetime
 
 s3 = boto3.client('s3')
+dynamodb = boto3.resource('dynamodb')
 bedrock = boto3.client("bedrock-runtime", region_name=os.environ.get('REGION', 'us-east-1'))
+table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
 def lambda_handler(event, context):
     headers = {
@@ -49,6 +52,20 @@ def lambda_handler(event, context):
         model_response = json.loads(response_body)
 
         content_text = model_response["output"]["message"]["content"][0].get("text", "No response text found")
+
+        # Save analysis results in DynamoDB
+        table.put_item(
+            Item={
+                "fileKey": file_key,
+                "filename": file_key.split("/")[-1],
+                "videoUrl": f"https://{bucket_name}.s3.amazonaws.com/{file_key}",
+                "analysis": content_text,
+                "timestamp": datetime.utcnow().isoformat(),
+                "customPromptUsed": bool(custom_prompt),
+                "user_prompt" : user_prompt,
+                "system_prompt" : system_prompt
+            }
+        )
 
         return {
             'statusCode': 200,

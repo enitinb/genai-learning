@@ -25,14 +25,13 @@
         border-radius: 10px;
     }
 
-
     #resultContent, #modalResultContent {
-        white-space: pre-wrap;      /* Preserve new lines */
-        word-wrap: break-word;      /* Force long words to wrap */
-        overflow-wrap: break-word;  /* Ensure proper word breaking */
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
         font-family: monospace;
         max-width: 100%;
-        width: 100%;                /* Ensures it stays within container */
+        width: 100%;
         padding: 10px;
         background: #f8f9fa;
         border-radius: 5px;
@@ -71,12 +70,14 @@
     }
 
     </style>
-    
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-leaf me-2"></i> AgriVision Analyzer</a>
+            <button class="btn btn-outline-light" onclick="location.href='history.html'">
+                <i class="fas fa-history me-2"></i> View History
+            </button>
         </div>
     </nav>
 
@@ -190,12 +191,10 @@ document.addEventListener('DOMContentLoaded', function () {
             videoPreview.src = URL.createObjectURL(file);
             analyzeBtn.disabled = false;
             
-            // Reset results when new file is selected
             resultContent.innerHTML = "";
             modalResultContent.innerHTML = "";
             resultCard.style.display = 'none';
 
-            // Clear old uploaded file key to ensure new upload happens
             uploadedFileKey = null;
         }
     }
@@ -223,7 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             analyzeModal.show();
-            analyzeModal._element.setAttribute('inert', 'true'); // Prevent focus issues
 
             const response = await fetch('https://abc.execute-api.us-west-2.amazonaws.com/prod/analyze', {
                 method: 'POST',
@@ -234,7 +232,6 @@ document.addEventListener('DOMContentLoaded', function () {
             modalResultContent.innerHTML = resultContent.innerHTML = `${data.raw_response}`;
 
             analyzeModal.hide();
-            analyzeModal._element.removeAttribute('inert'); // Restore modal focusability
             resultModal.show();
             resultCard.style.display = 'block';
         } catch (error) {

@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Agriculture Video Analysis Application with Pre-Signed S3 URLs
+Description: Agriculture Video Analysis Application with Pre-Signed S3 URLs and History Logging
 
 Parameters:
   StageName:
@@ -17,9 +17,10 @@ Globals:
       Variables:
         REGION: us-east-1
         UPLOAD_BUCKET: !Ref UploadBucket
+        DYNAMODB_TABLE: !Ref VideoAnalysisTable
 
 Resources:
-  # S3 Bucket for video uploads
+  # S3 Bucket for Video Uploads
   UploadBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -37,17 +38,38 @@ Resources:
             Status: Enabled
             ExpirationInDays: 1
 
+  # DynamoDB Table for Video Analysis History
+  VideoAnalysisTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: VideoAnalysisTable
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: fileKey
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: S
+      KeySchema:
+        - AttributeName: fileKey
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: TimestampIndex
+          KeySchema:
+            - AttributeName: timestamp
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+
   # Lambda Function for Generating Pre-Signed URLs
   GeneratePresignedUrlFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/  # ✅ Reference to folder containing Lambda functions
-      Handler: generate_presigned_url.lambda_handler  # ✅ This points to 'generate_presigned_url.py'
+      CodeUri: src/
+      Handler: generate_presigned_url.lambda_handler
       Policies:
-        - S3ReadPolicy:
-            BucketName: !Ref UploadBucket
-        - S3CrudPolicy:
-            BucketName: !Ref UploadBucket
+        - AmazonS3FullAccess  # Full access to S3 for generating pre-signed URLs
+        - AmazonDynamoDBFullAccess  # Full access to DynamoDB (if needed)
+        - AmazonBedrockFullAccess  # Full access to Amazon Bedrock
       Events:
         PresignedUrlEvent:
           Type: Api
@@ -56,27 +78,40 @@ Resources:
             Method: post
             RestApiId: !Ref ApiGateway
 
-  # Lambda Function for Video Analysis
+  # Lambda Function for Video Analysis & Logging Results
   VideoAnalysisFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/  # ✅ Reference to folder containing Lambda functions
-      Handler: analyze_video.lambda_handler  # ✅ This points to 'analyze_video.py'
+      CodeUri: src/
+      Handler: analyze_video.lambda_handler
       Policies:
-        - S3ReadPolicy:
-            BucketName: !Ref UploadBucket
-        - Statement:
-          - Effect: Allow
-            Action:
-              - bedrock:InvokeModel
-            Resource: 
-              - !Sub arn:aws:bedrock:${AWS::Region}::foundation-model/us.amazon.nova-lite-v1:0
+        - AmazonS3ReadOnlyAccess  # Read access to S3 bucket
+        - AmazonDynamoDBFullAccess  # Full access to DynamoDB
+        - AmazonBedrockFullAccess  # Full access to Amazon Bedrock
       Events:
         AnalyzeEvent:
           Type: Api
           Properties:
             Path: /analyze
             Method: post
+            RestApiId: !Ref ApiGateway
+
+  # Lambda Function to Retrieve Video Analysis History
+  GetAnalysisHistoryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: get_analysis_history.lambda_handler
+      Policies:
+        - AmazonDynamoDBFullAccess  # Full access to DynamoDB for fetching history
+        - AmazonBedrockFullAccess  # Full access to Amazon Bedrock
+        - AmazonS3FullAccess
+      Events:
+        HistoryEvent:
+          Type: Api
+          Properties:
+            Path: /history
+            Method: get
             RestApiId: !Ref ApiGateway
 
   # API Gateway
@@ -93,7 +128,11 @@ Outputs:
   ApiUrl:
     Description: URL of the API endpoint
     Value: !Sub https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${StageName}/
-  
+
   UploadBucketName:
     Description: Name of the S3 bucket for uploads
     Value: !Ref UploadBucket
+
+  DynamoDBTable:
+    Description: Name of the DynamoDB table storing analysis history
+    Value: !Ref VideoAnalysisTable
