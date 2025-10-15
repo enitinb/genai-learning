@@ -107,6 +107,7 @@ Keep it to about 15-20 exchanges total with natural back-and-forth."""
 
         response_body = json.loads(response['body'].read())
         script_text = response_body['content'][0]['text']
+        print(script_text)
 
         # Parse the script
         lines = script_text.strip().split('\n')
