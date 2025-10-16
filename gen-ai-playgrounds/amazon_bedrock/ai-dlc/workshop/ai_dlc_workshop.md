@@ -1,172 +1,121 @@
-# AI-DLC Tiered Workshop Series: From Basics to Mastery
+# AI-DLC Tiered Workshop Series: Standard Methodology Across All Levels
 
 ## Workshop Series Overview
 
-This three-tier workshop series teaches AI-Driven Development Lifecycle (AI-DLC) through progressive, hands-on learning experiences. Each workshop builds upon the previous one while introducing new concepts and complexity.
+This three-tier workshop series teaches AI-Driven Development Lifecycle (AI-DLC) using the **exact same methodology sequence** across all levels. Each tier follows the identical AI-DLC process from Appendix A, with only the **project complexity and scope** varying by skill level.
 
-**Series Structure:**
-- **Beginner:** Foundation concepts with simple project
-- **Intermediate:** Full AI-DLC cycle with moderate complexity  
-- **Advanced:** Enterprise scenarios with team collaboration
+**Consistent AI-DLC Sequence for All Tiers:**
+1. Setup Prompt
+2. Inception - User Stories  
+3. Units Decomposition
+4. Construction - Domain Model Creation
+5. Code Generation
+6. Architecture
+7. Build IaC/Rest APIs
 
 ---
 
 # TIER 1: BEGINNER WORKSHOP
-## "Building Your First AI-Enhanced Task Manager"
+## "Personal Task Manager using AI-DLC"
 
 ### Target Audience
 - Developers new to AI-assisted development
-- Traditional Agile practitioners exploring AI-DLC
-- Product managers wanting hands-on AI experience
+- Traditional methodology practitioners exploring AI-DLC
+- Anyone wanting to learn AI-DLC fundamentals
 
-### Duration: 3 hours
-
-### Learning Objectives
-- Understand core AI-DLC principles
-- Experience AI-driven requirements elaboration
-- Practice basic validation techniques
-- Build a simple working application
+### Duration: 4 hours
+### Project Scope: Simple personal productivity application
 
 ---
 
-## Beginner Workshop Content
+## Phase 1: AI-DLC Setup (20 minutes)
 
-### Use Case: Personal Task Management App
-**Scenario:** Build a smart task manager for a freelance consultant who needs to:
-- Track tasks across multiple client projects
-- Get AI suggestions for task prioritization
-- Automatically categorize tasks by type
-- Generate simple productivity reports
-
-### Phase 1: Introduction & Setup (30 minutes)
-
-#### What is AI-DLC? (15 minutes)
-**Key AI-DLC Principles to Understand:**
-- **Reverse Conversation Direction:** AI initiates and directs conversations
-- **Reimagine Rather Than Retrofit:** Built for rapid AI-driven cycles (hours/days, not weeks)
-- **Human Validation:** You approve and guide AI's work at every step
-- **Artifacts as Context:** Everything is documented and linked for AI reference
-
-#### Hands-On Setup (15 minutes)
-**Use the Official AI-DLC Setup Pattern:**
-```bash
-# Create AI-DLC standard structure
-mkdir ai-dlc-beginner
-cd ai-dlc-beginner
-mkdir -p aidlc-docs/{plans,requirements,story-artifacts,design-artifacts}
-mkdir -p {frontend,backend,deployment}
+### **Step 1: Setup Prompt**
+```
+We will work on building an application today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.
 ```
 
-**Official AI-DLC Setup Prompt:**
-```
-We will work on building a Personal Task Manager today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.
-```
+## Phase 2: Inception - User Stories (45 minutes)
 
-### Phase 2: AI-DLC User Stories Creation (45 minutes)
-
-#### Step 1: Official AI-DLC User Stories Prompt (15 minutes)
-**Use the exact AI-DLC methodology:**
-
+### **Step 2: User Stories Prompt**
 ```
 Your Role: You are an expert product manager and are tasked with creating well defined user stories that becomes the contract for developing the system as mentioned in the Task section below. Plan for the work ahead and write your steps in an md file (user_stories_plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Build user stories for the high-level requirement as described here: "I want a personal task manager that helps me stay organized and productive with my daily tasks, including smart prioritization and simple reporting."
+Your Task: Build user stories for the high-level requirement as described here: "Build a personal task manager that helps freelancers organize their daily tasks, set priorities, and track completion across multiple client projects."
 ```
 
-#### Step 2: Review and Approve AI's Plan (15 minutes)
-**Exercise:** The AI will create a plan file. Your job is to:
-- Review the plan steps
-- Check if any steps need your input
-- Modify the plan if needed
-- Approve using the official response:
-
+**After reviewing the plan:**
 ```
-Yes, I like your plan as in the user_stories_plan.md file. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
+Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
 ```
 
-#### Step 3: Execute Plan with AI Validation (15 minutes)
-**Key Learning:** Notice how AI:
-- Asks for your input at planned checkpoints
-- Doesn't make assumptions about your needs
-- Creates user stories as formal contracts
-- Stores everything in the correct AI-DLC folders
+## Phase 3: Units Decomposition (30 minutes)
 
-### Phase 3: Official AI-DLC Unit Decomposition (60 minutes)
-
-#### Step 1: AI-DLC Units Prompt (25 minutes)
-**Use the Official AI-DLC Units Pattern:**
-
+### **Step 3: Units Prompt**
 ```
 Your Role: You are an experienced software architect. Before you start the task as mentioned below, please do the planning and write your steps in the units_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Refer to the user stories in the aidlc-docs/story-artifacts/mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the aidlc-docs/design-artifacts/ folder.
+Your Task: Refer to the user stories mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the design/ folder.
 ```
 
-#### Step 2: Plan Review and Approval (20 minutes)
-**Exercise:** Review AI's units plan and use the official approval:
+**After reviewing the plan:**
 ```
 I approve. Proceed.
 ```
 
-**Watch for AI-DLC principles:**
-- Units are loosely coupled
-- Each unit can be built independently
-- High cohesion within units
-- Clear boundaries between units
+## Phase 4: Construction - Domain Model Creation (40 minutes)
 
-#### Step 3: Unit Validation Workshop (15 minutes)
-**AI-DLC Validation Framework:**
-- **Cohesion:** Stories within a unit serve the same business capability
-- **Coupling:** Minimal dependencies between units
-- **Value:** Each unit delivers standalone business value
-- **Size:** Appropriate for rapid development (Bolts, not Sprints)
-
-### Phase 4: AI-DLC Domain Design (30 minutes)
-
-#### Step 1: Official Domain Model Creation Prompt (20 minutes)
-**Use the exact AI-DLC Construction Phase pattern:**
-
+### **Step 4: Domain Model Prompt**
 ```
-Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in a aidlc-docs/design-artifacts/component_model_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an design/component_model.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Refer to the user stories in the aidlc-docs/design-artifacts/task_management_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviours and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into a separate md file in the aidlc-docs/design-artifacts folder.
+Your Task: Refer to the user stories in the design/task_management_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviours and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into a separate md file in the /design folder.
 ```
 
-#### Step 2: Plan Approval and Execution (10 minutes)
-**Exercise:** Review the plan and approve:
+**After reviewing the plan:**
 ```
 I approve the plan. Proceed. After completing each step, mark the checkbox in your plan file.
 ```
 
-**Key Learning Points:**
-- AI creates domain models using DDD principles
-- No code generation yet - design first
-- Everything is documented for future AI reference
-- Human validation at each checkpoint
+## Phase 5: Code Generation (40 minutes)
 
-### Phase 5: Reflection & Next Steps (15 minutes)
+### **Step 5: Code Generation Prompt**
+```
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-#### What Did You Learn?
-**Discussion Points:**
-- How was working with AI different from coding alone?
-- What surprised you about AI's suggestions?
-- Where did you need to correct or guide the AI?
+Task: Refer to component design in the design/task_component_model.md file. Generate a very simple and intuitive Python implementation for the Task Management Component that is in the design. For the prioritizeTask() method, use basic rule-based logic to assign priority scores. Generate the classes in respective individual files but keep them in `taskManager` directory.
+```
 
-#### Key Takeaways
-1. **AI accelerates but doesn't replace thinking**
-2. **Validation is crucial** - AI makes mistakes
-3. **Simple intentions can become clear requirements**
-4. **Start small, build incrementally**
+## Phase 6: Architecture (35 minutes)
 
-#### Next Steps
-- Practice more AI-assisted coding
-- Try the Intermediate workshop
-- Experiment with different AI tools
+### **Step 6: Architecture Prompt**
+```
+Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Task: Refer component design model: design/task_component_model.md, units in the design/ folder, and backend code in the taskManager/ folder. Complete the following:
+- Generate a end-to-end plan for deployment of the backend on AWS cloud using CloudFormation.
+- Document all the pre-requisites for the deployment, if any.
+
+Once I approve the plan:
+- Follow the best practice of clean, simple, explainable coding.
+- All output code goes in the DEPLOYMENT/ folder.
+- Validate that the generated code works as intended, by creating a validation plan, generate a validation report.
+- Review the validation report and fix all identified issues, update the validation report.
+```
+
+## Phase 7: Build IaC/Rest APIs (30 minutes)
+
+### **Step 7: Build APIs Prompt**
+```
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Task: Refer to the services.py under the taskManager/ folder. Create python flask apis for each of the service there.
+```
 
 ---
 
 # TIER 2: INTERMEDIATE WORKSHOP
-## "Building a Smart Customer Feedback System"
+## "Smart Customer Feedback System using AI-DLC"
 
 ### Target Audience
 - Developers comfortable with basic AI assistance
@@ -174,252 +123,100 @@ I approve the plan. Proceed. After completing each step, mark the checkbox in yo
 - Those who completed Beginner workshop
 
 ### Duration: 5 hours
-
-### Learning Objectives
-- Master the complete AI-DLC cycle
-- Practice mob elaboration techniques
-- Learn unit decomposition strategies
-- Experience AI-driven testing
+### Project Scope: Business application with AI integration
 
 ---
 
-## Intermediate Workshop Content
+## Phase 1: AI-DLC Setup (20 minutes)
 
-### Use Case: Smart Customer Feedback System
-**Scenario:** A growing SaaS company needs a system to:
-- Collect feedback from multiple channels (email, chat, surveys)
-- Automatically categorize and prioritize feedback
-- Generate insights and trends for product managers
-- Alert teams about critical issues
-- Track resolution and follow-up
-
-### Phase 1: Advanced Setup & Team Formation (45 minutes)
-
-#### AI-DLC Environment Setup (20 minutes)
-```bash
-# Intermediate workshop structure
-mkdir ai-dlc-intermediate
-cd ai-dlc-intermediate
-
-# Full AI-DLC folder structure
-mkdir -p aidlc-docs/{plans,requirements,story-artifacts,design-artifacts}
-mkdir -p {frontend,backend,deployment,tests}
-mkdir -p units/{feedback-collection,ai-analysis,dashboard,integration}
+### **Step 1: Setup Prompt**
+```
+We will work on building an application today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.
 ```
 
-#### Team Mob Formation (25 minutes)
-**Exercise:** Form virtual "mob" roles:
-- **Product Owner:** Validates business value
-- **Developer:** Technical implementation
-- **QA:** Testing strategy
-- **AI Facilitator:** Guides AI interactions
+## Phase 2: Inception - User Stories (50 minutes)
 
-*Note: In solo practice, you'll rotate between these roles*
-
-### Phase 2: Official AI-DLC Mob Elaboration (75 minutes)
-
-#### Step 1: Business Intent with AI-DLC Setup (20 minutes)
-**Use the Official AI-DLC Setup:**
-```
-We will work on building a Smart Customer Feedback System today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.
-```
-
-#### Step 2: Official User Stories Generation (35 minutes)
-**Use the Exact AI-DLC User Stories Prompt:**
+### **Step 2: User Stories Prompt**
 ```
 Your Role: You are an expert product manager and are tasked with creating well defined user stories that becomes the contract for developing the system as mentioned in the Task section below. Plan for the work ahead and write your steps in an md file (user_stories_plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Build user stories for the high-level requirement as described here: "Build a smart system that helps us understand and act on customer feedback better by collecting feedback from multiple channels, automatically categorizing and prioritizing it, generating insights for product managers, and alerting teams about critical issues."
+Your Task: Build user stories for the high-level requirement as described here: "Build a smart customer feedback system that collects feedback from multiple channels (email, chat, surveys), automatically categorizes and prioritizes feedback using AI, generates insights and trends for product managers, alerts teams about critical issues, and tracks resolution and follow-up."
 ```
 
-**Then approve with official response:**
+**After reviewing the plan:**
 ```
-Yes, I like your plan as in the user_stories_plan.md file. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
+Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
 ```
 
-#### Step 3: Official Units Decomposition (20 minutes)
-**Use the Official AI-DLC Units Pattern:**
+## Phase 3: Units Decomposition (40 minutes)
+
+### **Step 3: Units Prompt**
 ```
 Your Role: You are an experienced software architect. Before you start the task as mentioned below, please do the planning and write your steps in the units_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Refer to the user stories in aidlc-docs/story-artifacts/mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the aidlc-docs/design-artifacts/ folder.
+Your Task: Refer to the user stories mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the design/ folder.
 ```
 
-**Approve with:**
+**After reviewing the plan:**
 ```
 I approve. Proceed.
 ```
 
-### Phase 3: Strategic Unit Decomposition (60 minutes)
+## Phase 4: Construction - Domain Model Creation (60 minutes)
 
-#### Step 1: AI-Driven Unit Identification (25 minutes)
-**Exercise:**
+### **Step 4: Domain Model Prompt**
 ```
-Analyze our user stories and suggest how to group them into independent units.
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an design/component_model.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Each unit should:
-- Be buildable by one small team
-- Deliver standalone business value
-- Have minimal dependencies on other units
-- Be deployable independently
-
-Suggest 4-6 units with rationale for each grouping.
+Your Task: Refer to the user stories in the design/feedback_analysis_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviours and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into a separate md file in the /design folder.
 ```
 
-#### Step 2: Unit Validation & Refinement (25 minutes)
-**Review Framework:**
-- **Cohesion:** Do all stories in a unit relate to the same capability?
-- **Coupling:** Can units be developed in parallel?
-- **Completeness:** Does each unit deliver end-to-end value?
-- **Size:** Is each unit appropriately sized for 1-3 bolts?
-
-#### Step 3: Dependencies & Integration Planning (10 minutes)
-**Exercise:** Map integration points between units:
+**After reviewing the plan:**
 ```
-For each unit pair, identify:
-- Data sharing requirements
-- API contracts needed
-- Event-driven interactions
-- Shared infrastructure needs
+I approve the plan. Proceed. After completing each step, mark the checkbox in your plan file.
 ```
 
-### Phase 4: Domain-Driven Design Deep Dive (90 minutes)
+## Phase 5: Code Generation (60 minutes)
 
-#### Step 1: Domain Modeling for One Unit (40 minutes)
-**Focus:** AI Analysis Unit
-
-**Exercise:**
+### **Step 5: Code Generation Prompt**
 ```
-Using Domain-Driven Design principles, create a domain model for the AI Analysis Unit.
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Include:
-- Core entities (Feedback, Sentiment, Category, etc.)
-- Value objects (SentimentScore, Priority, etc.)
-- Aggregates and their boundaries
-- Domain services (AnalysisEngine, CategoryClassifier)
-- Repository patterns
-- Domain events
+Task: Refer to component design in the design/feedback_analysis_component.md file. Generate a very simple and intuitive Python implementation for the Feedback Analysis Component that is in the design. For the analyzeSentiment() method, use amazon bedrock APIs to extract sentiment and entities from the feedback text. Generate the classes in respective individual files but keep them in `feedbackAnalyzer` directory.
 
-Explain your reasoning for each design decision.
+Refer to the generated codes in feedbackAnalyzer directory. I want the SentimentAnalyzer component to make a call to GenAI. The current implementation uses basic sentiment rules. Can you analyse and give me a plan on how I can leverage GenAI for both Sentiment Analysis and Category Classification.
 ```
 
-#### Step 2: Domain Model Validation (25 minutes)
-**Validation Checklist:**
-- [ ] Business rules encapsulated in entities
-- [ ] Aggregate boundaries preserve consistency
-- [ ] Domain events capture business moments
-- [ ] Services contain domain logic, not infrastructure
-- [ ] Repositories abstract data access
+## Phase 6: Architecture (50 minutes)
 
-#### Step 3: Cross-Unit Integration Design (25 minutes)
-**Exercise:**
+### **Step 6: Architecture Prompt**
 ```
-Design how the AI Analysis Unit integrates with:
-- Feedback Collection Unit (input data)
-- Dashboard Unit (analysis results)
-- Integration Unit (external notifications)
+Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Use event-driven patterns and define clear contracts.
+Task: Refer component design model: design/feedback_analysis_component.md, units in the design/ folder, cloud architecture in the ARCHITECTURE/ folder, and backend code in the feedbackAnalyzer/ folder. Complete the following:
+- Generate a end-to-end plan for deployment of the backend on AWS cloud using CloudFormation.
+- Document all the pre-requisites for the deployment, if any.
+
+Once I approve the plan:
+- Follow the best practice of clean, simple, explainable coding.
+- All output code goes in the DEPLOYMENT/ folder.
+- Validate that the generated code works as intended, by creating a validation plan, generate a validation report.
+- Review the validation report and fix all identified issues, update the validation report.
 ```
 
-### Phase 5: AI-Assisted Implementation (105 minutes)
+## Phase 7: Build IaC/Rest APIs (40 minutes)
 
-#### Step 1: Code Generation & Review (45 minutes)
-**Exercise:** Generate Python implementation:
+### **Step 7: Build APIs Prompt**
 ```
-Generate Python code for the AI Analysis Unit domain model.
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Requirements:
-- Clean architecture principles
-- Proper error handling and logging
-- Integration with AWS services (Comprehend, Lambda)
-- Comprehensive type hints
-- Domain-driven design patterns
-
-Create files organized by architectural layers.
+Task: Refer to the services.py under the feedbackAnalyzer/ folder. Create python flask apis for each of the service there.
 ```
-
-**Review Process:**
-1. Check for architectural violations
-2. Validate business logic implementation
-3. Review error handling strategies
-4. Assess performance implications
-
-#### Step 2: Testing Strategy Implementation (35 minutes)
-**Exercise:**
-```
-Generate comprehensive tests for the AI Analysis Unit:
-
-- Unit tests for domain logic
-- Integration tests for AWS services
-- Contract tests for unit interfaces
-- Performance tests for analysis throughput
-- Mock strategies for external dependencies
-
-Include test data generation strategies.
-```
-
-#### Step 3: API Design & Documentation (25 minutes)
-**Exercise:**
-```
-Design REST APIs for the AI Analysis Unit:
-
-- OpenAPI specification
-- Request/response schemas
-- Error handling patterns
-- Rate limiting strategies
-- Authentication requirements
-
-Generate API documentation and client SDKs.
-```
-
-### Phase 6: Deployment & Operations (45 minutes)
-
-#### Step 1: Infrastructure as Code (25 minutes)
-**Exercise:**
-```
-Create AWS CDK templates for the AI Analysis Unit:
-
-- Lambda functions for analysis processing
-- SQS queues for asynchronous processing
-- DynamoDB for state persistence
-- CloudWatch for monitoring
-- IAM roles with least privilege
-
-Include environment-specific configurations.
-```
-
-#### Step 2: Monitoring & Alerting (20 minutes)
-**Exercise:**
-```
-Design observability for the AI Analysis Unit:
-
-- Business metrics (analysis accuracy, throughput)
-- Technical metrics (latency, errors, costs)
-- Alerting rules for SLA violations
-- Dashboard layouts for different audiences
-- Log aggregation and searching
-```
-
-### Phase 7: Workshop Wrap-up (30 minutes)
-
-#### Demo & Validation (15 minutes)
-- Present complete unit architecture
-- Show working API endpoints
-- Demonstrate monitoring dashboards
-- Walk through testing strategy
-
-#### Retrospective & Learning (15 minutes)
-**Key Questions:**
-- How did AI-DLC compare to traditional methods?
-- Where did AI excel vs. where did you need to guide it?
-- What would you do differently next time?
-- How ready do you feel to use this on real projects?
 
 ---
 
 # TIER 3: ADVANCED WORKSHOP
-## "Enterprise Multi-Team AI-DLC Implementation"
+## "Enterprise Digital Asset Management Platform using AI-DLC"
 
 ### Target Audience
 - Experienced developers and architects
@@ -427,367 +224,135 @@ Design observability for the AI Analysis Unit:
 - Those who completed Intermediate workshop
 
 ### Duration: 6 hours
-
-### Learning Objectives
-- Orchestrate AI-DLC across multiple teams
-- Handle complex enterprise requirements
-- Implement advanced AI-DLC patterns
-- Create organizational adoption strategies
+### Project Scope: Enterprise-scale platform with compliance requirements
 
 ---
 
-## Advanced Workshop Content
+## Phase 1: AI-DLC Setup (25 minutes)
 
-### Use Case: Enterprise Digital Asset Management Platform
-**Scenario:** A large financial services company needs a platform to:
-- Manage regulatory documents across 15 business units
-- Ensure compliance with multiple jurisdictions
-- Provide AI-powered document classification and search
-- Support audit trails and version control
-- Integrate with existing enterprise systems
-- Scale to handle 100K+ documents with 500+ concurrent users
-
-### Phase 1: Enterprise AI-DLC Setup (60 minutes)
-
-#### Multi-Team Environment (30 minutes)
-**Teams Setup:**
-- **Platform Team:** Core infrastructure and services
-- **Compliance Team:** Regulatory features and audit
-- **UX Team:** User interface and experience
-- **Integration Team:** Enterprise system connections
-- **DevOps Team:** Deployment and operations
-
-#### Enterprise Constraints Workshop (30 minutes)
-**Exercise:** Identify real enterprise challenges:
+### **Step 1: Setup Prompt**
 ```
-We're implementing AI-DLC in a large financial services organization.
-
-Help identify potential challenges and mitigation strategies for:
-- Security and compliance requirements
-- Legacy system integration constraints
-- Multi-team coordination complexity
-- Regulatory approval processes
-- Enterprise architecture standards
-- Change management resistance
-
-For each challenge, suggest AI-DLC adaptations.
+We will work on building an application today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.
 ```
 
-### Phase 2: Advanced Mob Elaboration (75 minutes)
+## Phase 2: Inception - User Stories (65 minutes)
 
-#### Multi-Stakeholder Requirements (30 minutes)
-**Stakeholder Simulation:**
-- **Chief Compliance Officer:** Regulatory requirements
-- **Head of Digital:** Business transformation goals
-- **Enterprise Architect:** Technical standards
-- **End Users:** Usability needs
-- **Security Officer:** Security requirements
-
-**Exercise:**
+### **Step 2: User Stories Prompt**
 ```
-Facilitate a complex stakeholder requirements session for our Digital Asset Management Platform.
+Your Role: You are an expert product manager and are tasked with creating well defined user stories that becomes the contract for developing the system as mentioned in the Task section below. Plan for the work ahead and write your steps in an md file (user_stories_plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Each stakeholder has different priorities and constraints. Help navigate conflicts and find solutions that satisfy all parties.
-
-Generate a stakeholder requirements matrix showing:
-- Functional requirements by stakeholder
-- Conflicting requirements and proposed resolutions
-- Non-functional requirements and their sources
-- Risk register with mitigation strategies
+Your Task: Build user stories for the high-level requirement as described here: "Build an enterprise digital asset management platform for a large financial services company that manages regulatory documents across 15 business units, ensures compliance with multiple jurisdictions, provides AI-powered document classification and search, supports audit trails and version control, integrates with existing enterprise systems, and scales to handle 100K+ documents with 500+ concurrent users."
 ```
 
-#### Advanced Story Mapping (25 minutes)
-**Exercise:**
+**After reviewing the plan:**
 ```
-Create an advanced user story map for the Digital Asset Management Platform.
-
-Include:
-- User journey flows across different personas
-- Integration points with existing systems
-- Compliance checkpoints throughout workflows
-- Error scenarios and recovery paths
-- Performance requirements at each step
-
-Organize stories into releases considering:
-- Regulatory approval timelines
-- Integration complexity
-- User adoption strategies
+Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
 ```
 
-#### Cross-Team Dependencies (20 minutes)
-**Exercise:** Map complex dependencies:
+## Phase 3: Units Decomposition (55 minutes)
+
+### **Step 3: Units Prompt**
 ```
-Analyze story dependencies across our 5 teams:
+Your Role: You are an experienced software architect. Before you start the task as mentioned below, please do the planning and write your steps in the units_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-- Platform Team: Core services and APIs
-- Compliance Team: Regulatory features
-- UX Team: User interfaces
-- Integration Team: Enterprise connections
-- DevOps Team: Infrastructure and deployment
-
-Identify:
-- Critical path dependencies
-- Parallel development opportunities
-- Integration points and contracts
-- Shared component strategies
+Your Task: Refer to the user stories mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the design/ folder.
 ```
 
-### Phase 3: Advanced Architecture Design (90 minutes)
-
-#### Enterprise Architecture Patterns (35 minutes)
-**Exercise:**
+**After reviewing the plan:**
 ```
-Design enterprise architecture for our Digital Asset Management Platform using:
-
-- Domain-Driven Design with bounded contexts
-- Event-driven architecture for loose coupling
-- CQRS for read/write optimization
-- Microservices with clear boundaries
-- Enterprise integration patterns
-
-Consider:
-- Multi-tenancy for different business units
-- Data residency and sovereignty requirements
-- Disaster recovery and business continuity
-- Scalability to 100K+ documents
-- Security at multiple layers
+I approve. Proceed.
 ```
 
-#### Advanced AI Integration (30 minutes)
-**Exercise:**
+## Phase 4: Construction - Domain Model Creation (75 minutes)
+
+### **Step 4: Domain Model Prompt**
 ```
-Design AI integration strategy for:
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an design/component_model.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-- Document classification and tagging
-- Intelligent search and retrieval
-- Compliance violation detection
-- Content recommendation
-- Audit anomaly detection
-
-Address:
-- AI model lifecycle management
-- Training data privacy and compliance
-- Model bias detection and mitigation
-- Explainable AI for regulatory requirements
-- Performance monitoring and drift detection
+Your Task: Refer to the user stories in the design/document_management_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviours and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into a separate md file in the /design folder.
 ```
 
-#### Cross-Cutting Concerns (25 minutes)
-**Exercise:**
+**After reviewing the plan:**
 ```
-Design enterprise cross-cutting concerns:
-
-- Authentication and authorization (RBAC/ABAC)
-- Audit logging and compliance trails
-- Data encryption at rest and in transit
-- API rate limiting and quotas
-- Configuration management
-- Monitoring and observability
-- Incident response and recovery
+I approve the plan. Proceed. After completing each step, mark the checkbox in your plan file.
 ```
 
-### Phase 4: Advanced Implementation Patterns (90 minutes)
+## Phase 5: Code Generation (80 minutes)
 
-#### Multi-Team Code Generation (40 minutes)
-**Exercise:** Generate code for multiple teams:
-
-**Platform Team:**
+### **Step 5: Code Generation Prompt**
 ```
-Generate core platform services:
-- Document storage service with versioning
-- Metadata management APIs
-- Search indexing service
-- Event bus for cross-service communication
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Use hexagonal architecture with clear boundaries.
+Task: Refer to component design in the design/document_classifier_component.md file. Generate a very simple and intuitive Python implementation for the Document Classification Component that is in the design. For the classifyDocument() method, use amazon bedrock APIs to extract document type and compliance metadata from document content. Generate the classes in respective individual files but keep them in `documentClassifier` directory.
+
+Refer to the generated codes in documentClassifier directory. I want the DocumentAnalyzer component to make a call to GenAI. The current implementation uses basic pattern matching. Can you analyse and give me a plan on how I can leverage GenAI for both Document Classification and Compliance Validation.
 ```
 
-**Compliance Team:**
+## Phase 6: Architecture (65 minutes)
+
+### **Step 6: Architecture Prompt**
 ```
-Generate compliance-specific components:
-- Regulatory rule engine
-- Audit trail service
-- Compliance dashboard APIs
-- Violation detection workflows
+Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Integrate with platform services via defined contracts.
-```
+Task: Refer component design model: design/document_management_component.md, units in the UNITS/ folder, cloud architecture in the ARCHITECTURE/ folder, and backend code in the documentClassifier/ folder. Complete the following:
+- Generate a end-to-end plan for deployment of the backend on AWS cloud using CDK.
+- Document all the pre-requisites for the deployment, if any.
 
-#### Advanced Testing Strategies (25 minutes)
-**Exercise:**
-```
-Design comprehensive testing strategy for enterprise platform:
-
-- Contract testing between teams
-- Integration testing across services
-- Performance testing for 500+ concurrent users
-- Security testing for compliance requirements
-- Chaos engineering for resilience
-- End-to-end testing across user journeys
-
-Include test automation and CI/CD integration.
+Once I approve the plan:
+- Follow the best practice of clean, simple, explainable coding.
+- All output code goes in the DEPLOYMENT/ folder.
+- Validate that the generated code works as intended, by creating a validation plan, generate a validation report.
+- Review the validation report and fix all identified issues, update the validation report.
 ```
 
-#### API Contract Management (25 minutes)
-**Exercise:**
+## Phase 7: Build IaC/Rest APIs (55 minutes)
+
+### **Step 7: Build APIs Prompt**
 ```
-Design API contract management strategy:
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-- OpenAPI specifications for all services
-- Contract-first development approach
-- Backward compatibility guarantees
-- API versioning strategies
-- Consumer-driven contract testing
-- API gateway patterns and policies
+Task: Refer to the services.py under the documentClassifier/ folder. Create python flask apis for each of the service there.
 ```
-
-### Phase 5: Enterprise Deployment (75 minutes)
-
-#### Multi-Environment Strategy (30 minutes)
-**Exercise:**
-```
-Design deployment pipeline for enterprise environments:
-
-- Development (team isolation)
-- Integration (cross-team testing)
-- Staging (production-like validation)
-- Production (blue-green deployment)
-
-Include:
-- Infrastructure as Code (Terraform)
-- Environment-specific configurations
-- Secret management strategies
-- Database migration patterns
-- Monitoring and alerting per environment
-```
-
-#### Compliance and Security (25 minutes)
-**Exercise:**
-```
-Implement enterprise security and compliance:
-
-- Automated security scanning in CI/CD
-- Compliance validation checkpoints
-- Audit trail automation
-- Data classification and handling
-- Incident response automation
-- Regulatory reporting capabilities
-```
-
-#### Operational Excellence (20 minutes)
-**Exercise:**
-```
-Design operational excellence practices:
-
-- SLA monitoring and reporting
-- Capacity planning and auto-scaling
-- Cost optimization strategies
-- Performance tuning automation
-- Disaster recovery procedures
-- Change management integration
-```
-
-### Phase 6: Organizational Adoption (45 minutes)
-
-#### Change Management Strategy (20 minutes)
-**Exercise:**
-```
-Design AI-DLC adoption strategy for the organization:
-
-- Training programs for different roles
-- Pilot project selection criteria
-- Success metrics and KPIs
-- Resistance management strategies
-- Communication and feedback loops
-- Gradual rollout approach
-```
-
-#### Scaling AI-DLC (15 minutes)
-**Exercise:**
-```
-Plan AI-DLC scaling across the enterprise:
-
-- Team structure recommendations
-- Tooling and infrastructure needs
-- Governance and standards
-- Community of practice development
-- Knowledge sharing mechanisms
-```
-
-#### Success Measurement (10 minutes)
-**Metrics Framework:**
-- Development velocity improvements
-- Quality metrics (defect rates, security issues)
-- Business value delivery speed
-- Team satisfaction and adoption rates
-- Cost optimization achievements
-
-### Phase 7: Capstone & Graduation (45 minutes)
-
-#### Complete System Demonstration (20 minutes)
-**Presentation Requirements:**
-- Multi-team architecture overview
-- Working integrations between services
-- Compliance and security features
-- Monitoring and operational dashboards
-- CI/CD pipeline demonstration
-
-#### AI-DLC Mastery Assessment (15 minutes)
-**Assessment Areas:**
-- Understanding of AI-DLC principles
-- Ability to guide AI effectively
-- Enterprise pattern recognition
-- Complex system design skills
-- Organizational change capabilities
-
-#### Next Steps & Certification (10 minutes)
-**Graduation Path:**
-- AI-DLC practitioner certification
-- Organizational champion role
-- Advanced specialization tracks
-- Community contribution opportunities
 
 ---
 
 ## Workshop Series Summary
 
-### Learning Progression
+### **Consistent AI-DLC Methodology**
+All three workshop tiers follow the identical 7-step AI-DLC sequence from Appendix A:
 
-**Beginner → Intermediate → Advanced**
-- Simple tasks → Complete systems → Enterprise platforms
-- Individual work → Team collaboration → Multi-team orchestration
-- Basic validation → Comprehensive testing → Enterprise governance
-- Local deployment → Cloud services → Enterprise infrastructure
+1. **Setup Prompt** - Establishes AI-DLC project structure
+2. **User Stories** - Expert product manager role with plan-approve-execute
+3. **Units** - Software architect role with independent unit decomposition  
+4. **Domain Model** - Software engineer role with DDD component design
+5. **Code Generation** - Python implementation with AI service integration
+6. **Architecture** - Cloud architect role with AWS deployment planning
+7. **APIs** - Flask REST API implementation
 
-### Key Takeaways by Tier
+### **Tier Differentiation Through Scope Only**
 
-#### Beginner Takeaways
-- AI accelerates development but requires human guidance
-- Start with clear intentions, validate frequently
-- Simple projects can demonstrate AI-DLC value
+| Aspect | Beginner | Intermediate | Advanced |
+|--------|----------|--------------|----------|
+| **Project** | Personal Task Manager | Customer Feedback System | Enterprise Asset Management |
+| **Complexity** | Simple CRUD operations | AI-powered analysis | Enterprise compliance & scale |
+| **Duration** | 4 hours | 5 hours | 6 hours |
+| **AI Integration** | Basic rule-based logic | AWS Comprehend/Bedrock | Advanced ML pipelines |
+| **Architecture** | Single service | Multi-service | Enterprise patterns |
+| **Users** | Individual | Business teams | 500+ concurrent users |
+| **Data Scale** | Personal tasks | Moderate feedback volume | 100K+ documents |
 
-#### Intermediate Takeaways
-- Mob elaboration creates better requirements faster
-- Domain-driven design integrates naturally with AI-DLC
-- Testing strategies must evolve for AI-assisted development
+### **Key Learning Outcomes**
 
-#### Advanced Takeaways
-- AI-DLC scales to enterprise complexity with proper governance
-- Cross-team coordination benefits significantly from AI assistance
-- Organizational adoption requires structured change management
+**All Participants Learn:**
+- Authentic AI-DLC methodology from AWS
+- Plan-approve-execute workflow patterns
+- AI-human collaboration techniques
+- Domain-driven design principles
+- Progressive artifact refinement
 
-### Continuing Education
+**Skill-Appropriate Application:**
+- Beginners focus on understanding the process
+- Intermediate practitioners apply to business problems  
+- Advanced teams tackle enterprise complexity
 
-#### Practice Opportunities
-- Open source projects using AI-DLC
-- Internal pilot projects
-- Community workshops and meetups
-- AI-DLC certification programs
-
-#### Advanced Topics
-- AI model integration in AI-DLC
-- Industry-specific AI-DLC adaptations
-- Advanced prompt engineering
-- AI-DLC tooling development
-
-**Ready to transform your development process? Start with the Beginner workshop and progress through each tier to master AI-DLC!**
+This approach ensures all participants learn the same proven AI-DLC methodology while working at their appropriate complexity level, enabling seamless progression through the workshop tiers.
