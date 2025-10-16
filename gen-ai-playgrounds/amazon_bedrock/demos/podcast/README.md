@@ -1,4 +1,4 @@
-# 🎙️ AI Podcast Generator
+# 🎙️ AI Podcast Generator - Using Amazon Bedrock and polly
 
 Generate natural, conversational podcasts on any topic using AI. Enter a topic and get a fully-voiced podcast with two hosts having a real conversation.
 
