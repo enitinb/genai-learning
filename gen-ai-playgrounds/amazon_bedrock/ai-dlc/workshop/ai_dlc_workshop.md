@@ -2,7 +2,8 @@
 
 ## Workshop Series Overview
 
-This three-tier workshop series teaches AI-Driven Development Lifecycle (AI-DLC) using the **exact same methodology sequence** across all levels. Each tier follows the identical AI-DLC process from the official whitepaper, with only the **project complexity and scope** varying by skill level.
+This three-tier workshop series teaches [AI-Driven Development Lifecycle (AI-DLC)](https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/)
+ using the **exact same methodology sequence** across all levels. Each tier follows the identical AI-DLC process from the official whitepaper, with only the **project complexity and scope** varying by skill level.
 
 **AI-DLC Three Phases with Consistent Activities:**
 - **Inception Phase** (Mob Elaboration Activities)
