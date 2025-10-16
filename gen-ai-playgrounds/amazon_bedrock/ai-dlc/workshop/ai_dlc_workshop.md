@@ -1,104 +1,94 @@
-# AI-DLC Tiered Workshop Series: Standard Methodology Across All Levels
+# AI-DLC Complete End-to-End Workshop Series
 
 ## Workshop Series Overview
 
-This three-tier workshop series teaches [AI-Driven Development Lifecycle (AI-DLC)](https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/)
- using the **exact same methodology sequence** across all levels. Each tier follows the identical AI-DLC process from the official whitepaper, with only the **project complexity and scope** varying by skill level.
+This three-tier workshop series teaches AI-Driven Development Lifecycle (AI-DLC) through complete end-to-end implementations following Appendix A exactly. Each tier executes all AI-DLC **Phases** and **Activities** with proper **AI-DLC Personas**.
 
-**AI-DLC Three Phases with Consistent Activities:**
-- **Inception Phase** (Mob Elaboration Activities)
-- **Construction Phase** (Mob Programming & Testing Activities)  
-- **Operations Phase** (Deployment & Monitoring Activities)
+**Complete AI-DLC Three-Phase Structure:**
+- **INCEPTION PHASE** (Mob Elaboration)
+- **CONSTRUCTION PHASE** (Mob Programming) 
+- **OPERATIONS PHASE** (AI-Driven Operations)
 
 **Key AI-DLC Personas:**
-- **Product Owner** (Business validation and oversight)
-- **Developers** (Technical implementation and validation)
+- **Product Owner** (Business validation and strategic decisions)
+- **Developers** (Technical implementation and oversight)
 - **AI** (Planning, decomposition, and generation)
 
 ---
 
-# TIER 1: BEGINNER WORKSHOP
-## "Personal Task Manager using AI-DLC"
+# TIER 1: BEGINNER - COMPLETE END-TO-END
+## "Personal Task Manager using Full AI-DLC Methodology"
 
-### Target Audience
-- Developers new to AI-assisted development
-- Traditional methodology practitioners exploring AI-DLC
-- Anyone wanting to learn AI-DLC fundamentals
-
-### Duration: 4 hours
-### Project Scope: Simple personal productivity application
+### Duration: 5 hours
+### Project: Simple personal productivity application for freelancers
 
 ---
 
 ## INCEPTION PHASE (1.5 hours)
 
-### **Activity 1: Setup Prompt** (20 minutes)
+### **Activity 1: Setup Prompt** (15 minutes)
 **AI-DLC Personas:** Product Owner + AI
+
 ```
 We will work on building an application today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.
 ```
 
 ### **Activity 2: User Stories Creation** (45 minutes)
 **AI-DLC Personas:** Product Owner (Lead) + AI
+
 ```
 Your Role: You are an expert product manager and are tasked with creating well defined user stories that becomes the contract for developing the system as mentioned in the Task section below. Plan for the work ahead and write your steps in an md file (user_stories_plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Build user stories for the high-level requirement as described here: "Build a personal task manager that helps freelancers organize their daily tasks, set priorities, and track completion across multiple client projects."
+Your Task: Build user stories for the high-level requirement as described here: "Build a personal task manager that helps freelancers organize their daily tasks, set priorities based on client importance and deadlines, track completion status, and generate simple productivity reports."
 ```
 
-**Product Owner Approval:**
+**Product Owner Approval Response:**
 ```
 Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
 ```
 
-### **Activity 3: Units Decomposition** (25 minutes)
+### **Activity 3: Units Decomposition** (30 minutes)
 **AI-DLC Personas:** Developers (Lead) + Product Owner + AI
+
 ```
 Your Role: You are an experienced software architect. Before you start the task as mentioned below, please do the planning and write your steps in the units_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
 Your Task: Refer to the user stories mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the design/ folder.
 ```
 
-**Developer Approval:**
+**Developer Approval Response:**
 ```
 I approve. Proceed.
 ```
 
-## CONSTRUCTION PHASE (2 hours)
+## CONSTRUCTION PHASE (2.5 hours)
 
-### **Activity 4: Domain Model Creation** (40 minutes)
+### **Activity 4: Domain Model Creation** (45 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
+
 ```
 Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an design/component_model.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
 Your Task: Refer to the user stories in the design/task_management_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviours and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into a separate md file in the /design folder.
 ```
 
-**Developer Approval:**
+**Developer Approval Response:**
 ```
 I approve the plan. Proceed. After completing each step, mark the checkbox in your plan file.
 ```
 
-### **Activity 5: Code Generation** (40 minutes)
+### **Activity 5: Code Generation** (50 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
+
 ```
 Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to component design in the design/task_component_model.md file. Generate a very simple and intuitive Python implementation for the Task Management Component that is in the design. For the prioritizeTask() method, use basic rule-based logic to assign priority scores. Generate the classes in respective individual files but keep them in `taskManager` directory.
+Task: Refer to component design in the design/task_component_model.md file. Generate a very simple and intuitive Python implementation for the Task Management Component that is in the design. For the prioritizeTask() method, use basic rule-based logic to assign priority scores based on deadline and client importance. Generate the classes in respective individual files but keep them in `taskManager` directory.
 ```
 
-### **Activity 6: Build IaC/Rest APIs** (40 minutes)
+### **Activity 6: Architecture Planning** (35 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
-```
-Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to the services.py under the taskManager/ folder. Create python flask apis for each of the service there.
-```
-
-## OPERATIONS PHASE (30 minutes)
-
-### **Activity 7: Architecture & Deployment** (30 minutes)
-**AI-DLC Personas:** Developers (Lead) + Product Owner + AI
 ```
 Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
@@ -113,74 +103,106 @@ Once I approve the plan:
 - Review the validation report and fix all identified issues, update the validation report.
 ```
 
-**Learning Focus:** Basic AI-DLC Operations concepts including AI-assisted deployment validation and simple monitoring patterns.
+### **Activity 7: Build IaC/Rest APIs** (30 minutes)
+**AI-DLC Personas:** Developers (Lead) + AI
+
+```
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Task: Refer to the services.py under the taskManager/ folder. Create python flask apis for each of the service there.
+```
+
+## OPERATIONS PHASE (1 hour)
+
+### **Activity 8: Deployment Execution** (35 minutes)
+**AI-DLC Personas:** Developers + Product Owner + AI
+
+**Operations Phase Activities:**
+- AI packages the task manager into Deployment Units (Lambda functions, API Gateway)
+- AI executes functional and basic security tests
+- AI analyzes test results and correlates any failures with code components
+- Developers validate AI's deployment recommendations and approve rollout
+
+**Learning Focus:** Basic AI-DLC Operations concepts including:
+- AI-driven deployment validation
+- Automated testing and result analysis
+- Simple monitoring setup for personal applications
+
+### **Activity 9: Basic Monitoring Setup** (25 minutes)
+**AI-DLC Personas:** Developers + AI
+
+**Operations Phase Monitoring:**
+- Set up basic CloudWatch monitoring for the task manager
+- Configure simple alerts for API errors and performance issues
+- AI recommends monitoring thresholds based on expected usage patterns
+- Developers validate monitoring setup and alert configurations
 
 ---
 
-# TIER 2: INTERMEDIATE WORKSHOP
-## "Smart Customer Feedback System using AI-DLC"
+# TIER 2: INTERMEDIATE - COMPLETE END-TO-END
+## "Smart Customer Feedback System using Full AI-DLC Methodology"
 
-### Target Audience
-- Developers comfortable with basic AI assistance
-- Teams wanting to adopt AI-DLC methodology
-- Those who completed Beginner workshop
-
-### Duration: 5 hours
-### Project Scope: Business application with AI integration
+### Duration: 6 hours
+### Project: AI-powered business application with multi-channel feedback processing
 
 ---
 
 ## INCEPTION PHASE (1.5 hours)
 
-### **Activity 1: Setup Prompt** (20 minutes)
+### **Activity 1: Setup Prompt** (15 minutes)
 **AI-DLC Personas:** Product Owner + AI
+
 ```
 We will work on building an application today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.
 ```
 
 ### **Activity 2: User Stories Creation** (50 minutes)
 **AI-DLC Personas:** Product Owner (Lead) + AI
+
 ```
 Your Role: You are an expert product manager and are tasked with creating well defined user stories that becomes the contract for developing the system as mentioned in the Task section below. Plan for the work ahead and write your steps in an md file (user_stories_plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Build user stories for the high-level requirement as described here: "Build a smart customer feedback system that collects feedback from multiple channels (email, chat, surveys), automatically categorizes and prioritizes feedback using AI, generates insights and trends for product managers, alerts teams about critical issues, and tracks resolution and follow-up."
+Your Task: Build user stories for the high-level requirement as described here: "Build a smart customer feedback system that collects feedback from multiple channels (email, chat, surveys), automatically categorizes and prioritizes feedback using AI sentiment analysis, generates insights and trends for product managers, alerts teams about critical issues, and tracks resolution and follow-up activities."
 ```
 
-**Product Owner Approval:**
+**Product Owner Approval Response:**
 ```
 Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
 ```
 
-### **Activity 3: Units Decomposition** (40 minutes)
+### **Activity 3: Units Decomposition** (35 minutes)
 **AI-DLC Personas:** Developers (Lead) + Product Owner + AI
+
 ```
 Your Role: You are an experienced software architect. Before you start the task as mentioned below, please do the planning and write your steps in the units_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
 Your Task: Refer to the user stories mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the design/ folder.
 ```
 
-**Developer Approval:**
+**Developer Approval Response:**
 ```
 I approve. Proceed.
 ```
 
-## CONSTRUCTION PHASE (2.5 hours)
+## CONSTRUCTION PHASE (3 hours)
 
 ### **Activity 4: Domain Model Creation** (60 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
+
 ```
 Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an design/component_model.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
 Your Task: Refer to the user stories in the design/feedback_analysis_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviours and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into a separate md file in the /design folder.
 ```
 
-**Developer Approval:**
+**Developer Approval Response:**
 ```
 I approve the plan. Proceed. After completing each step, mark the checkbox in your plan file.
 ```
 
-### **Activity 5: Code Generation** (60 minutes)
+### **Activity 5: Code Generation** (70 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
+
 ```
 Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
@@ -189,22 +211,13 @@ Task: Refer to component design in the design/feedback_analysis_component.md fil
 Refer to the generated codes in feedbackAnalyzer directory. I want the SentimentAnalyzer component to make a call to GenAI. The current implementation uses basic sentiment rules. Can you analyse and give me a plan on how I can leverage GenAI for both Sentiment Analysis and Category Classification.
 ```
 
-### **Activity 6: Build IaC/Rest APIs** (40 minutes)
+### **Activity 6: Architecture Planning** (30 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
-```
-Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to the services.py under the feedbackAnalyzer/ folder. Create python flask apis for each of the service there.
-```
-
-## OPERATIONS PHASE (1 hour)
-
-### **Activity 7: Architecture & Deployment** (50 minutes)
-**AI-DLC Personas:** Developers (Lead) + Product Owner + AI
 ```
 Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer component design model: design/feedback_analysis_component.md, units in the design/ folder, cloud architecture in the ARCHITECTURE/ folder, and backend code in the feedbackAnalyzer/ folder. Complete the following:
+Task: Refer component design model: design/feedback_analysis_component.md, units in the UNITS/ folder, cloud architecture in the ARCHITECTURE/ folder, and backend code in the feedbackAnalyzer/ folder. Complete the following:
 - Generate a end-to-end plan for deployment of the backend on AWS cloud using CloudFormation.
 - Document all the pre-requisites for the deployment, if any.
 
@@ -215,102 +228,120 @@ Once I approve the plan:
 - Review the validation report and fix all identified issues, update the validation report.
 ```
 
-### **Activity 8: Observability and Monitoring** (10 minutes)
+### **Activity 7: Build IaC/Rest APIs** (20 minutes)
+**AI-DLC Personas:** Developers (Lead) + AI
+
+```
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Task: Refer to the services.py under the feedbackAnalyzer/ folder. Create python flask apis for each of the service there.
+```
+
+## OPERATIONS PHASE (1.5 hours)
+
+### **Activity 8: Deployment and Testing** (60 minutes)
 **AI-DLC Personas:** Developers + Product Owner + AI
 
-**Operations Phase Learning:** Discuss AI-DLC Operations Phase principles:
-- AI analyzes telemetry data (metrics, logs, traces) 
-- AI detects patterns and predicts SLA violations
-- AI proposes actionable recommendations (scaling, tuning, fault isolation)
-- Developers validate AI recommendations and approve actions
-- Focus on proactive issue resolution and operational efficiency
+**Operations Phase Activities:**
+- AI packages feedback system into Deployment Units (Lambda functions, SQS queues, DynamoDB tables)
+- AI generates and executes comprehensive test suites:
+  - Functional tests for feedback processing workflows
+  - Security tests for data handling and API endpoints
+  - Performance tests for sentiment analysis throughput
+- AI analyzes test results and correlates failures with specific components
+- AI proposes fixes for failed tests (e.g., optimizing sentiment analysis performance)
+- Developers validate AI's findings and approve fixes
+
+### **Activity 9: Observability and Monitoring** (30 minutes)
+**AI-DLC Personas:** Developers + Product Owner + AI
+
+**Advanced Operations Phase:**
+- AI analyzes metrics, logs, and traces to identify patterns in feedback processing
+- AI detects anomalies in sentiment analysis accuracy and processing latency
+- AI integrates with incident runbooks to suggest actions:
+  - Scaling Lambda functions during high feedback volume
+  - Adjusting DynamoDB throughput for better performance
+  - Rebalancing API Gateway traffic distribution
+- Developers validate AI's recommendations and approve operational changes
+- Focus on proactive issue resolution and continuous system optimization
 
 ---
 
-# TIER 3: ADVANCED WORKSHOP
-## "Enterprise Digital Asset Management Platform using AI-DLC"
+# TIER 3: ADVANCED - COMPLETE END-TO-END
+## "Enterprise Digital Asset Management Platform using Full AI-DLC Methodology"
 
-### Target Audience
-- Experienced developers and architects
-- Team leads implementing AI-DLC organizationally
-- Those who completed Intermediate workshop
-
-### Duration: 6 hours
-### Project Scope: Enterprise-scale platform with compliance requirements
+### Duration: 7 hours
+### Project: Enterprise-scale platform with compliance, security, and multi-tenant requirements
 
 ---
 
 ## INCEPTION PHASE (2 hours)
 
-### **Activity 1: Setup Prompt** (25 minutes)
+### **Activity 1: Setup Prompt** (20 minutes)
 **AI-DLC Personas:** Product Owner + AI
+
 ```
 We will work on building an application today. For every front end and backend component we will create a project folder. All documents will reside in the aidlc-docs folder. Throughout our session I'll ask you to plan your work ahead and create an md file for the plan. You may work only after I approve said plan. These plans will always be stored in aidlc-docs/plans folder. You will create many types of documents in the md format. Requirement, features changes documents will reside in aidlc-docs/requirements folder. User stories must be stored in the aidlc-docs/story-artifacts folder. Architecture and Design documents must be stored in the aidlc-docs/design-artifacts folder. All prompts in order must be stored in the aidlc-docs/prompts.md file. Confirm your understanding of this prompt. Create the necessary folders and files for storage, if they do not exist already.
 ```
 
-### **Activity 2: User Stories Creation** (65 minutes)
+### **Activity 2: Enterprise User Stories Creation** (70 minutes)
 **AI-DLC Personas:** Product Owner (Lead) + Multiple Stakeholders + AI
+
 ```
 Your Role: You are an expert product manager and are tasked with creating well defined user stories that becomes the contract for developing the system as mentioned in the Task section below. Plan for the work ahead and write your steps in an md file (user_stories_plan.md) with checkboxes for each step in the plan. If any step needs my clarification, add a note in the step to get my confirmation. Do not make critical decisions on your own. Upon completing the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Build user stories for the high-level requirement as described here: "Build an enterprise digital asset management platform for a large financial services company that manages regulatory documents across 15 business units, ensures compliance with multiple jurisdictions, provides AI-powered document classification and search, supports audit trails and version control, integrates with existing enterprise systems, and scales to handle 100K+ documents with 500+ concurrent users."
+Your Task: Build user stories for the high-level requirement as described here: "Build an enterprise digital asset management platform for a large financial services company that manages regulatory documents across 15 business units, ensures compliance with multiple jurisdictions (SEC, FINRA, GDPR), provides AI-powered document classification and intelligent search, supports comprehensive audit trails and version control, integrates with existing enterprise systems (Active Directory, SharePoint, Salesforce), and scales to handle 100K+ documents with 500+ concurrent users while maintaining sub-second search response times."
 ```
 
-**Product Owner Approval:**
+**Product Owner Approval Response:**
 ```
 Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
 ```
 
-### **Activity 3: Units Decomposition** (55 minutes)
+### **Activity 3: Enterprise Units Decomposition** (50 minutes)
 **AI-DLC Personas:** Developers (Lead) + Product Owner + AI
+
 ```
 Your Role: You are an experienced software architect. Before you start the task as mentioned below, please do the planning and write your steps in the units_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
 Your Task: Refer to the user stories mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the design/ folder.
 ```
 
-**Developer Approval:**
+**Developer Approval Response:**
 ```
 I approve. Proceed.
 ```
 
-## CONSTRUCTION PHASE (3 hours)
+## CONSTRUCTION PHASE (3.5 hours)
 
-### **Activity 4: Domain Model Creation** (75 minutes)
+### **Activity 4: Enterprise Domain Model Creation** (80 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
+
 ```
 Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an design/component_model.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
 Your Task: Refer to the user stories in the design/document_management_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviours and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into a separate md file in the /design folder.
 ```
 
-**Developer Approval:**
+**Developer Approval Response:**
 ```
 I approve the plan. Proceed. After completing each step, mark the checkbox in your plan file.
 ```
 
-### **Activity 5: Code Generation** (80 minutes)
+### **Activity 5: Enterprise Code Generation** (90 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
+
 ```
 Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to component design in the design/document_classifier_component.md file. Generate a very simple and intuitive Python implementation for the Document Classification Component that is in the design. For the classifyDocument() method, use amazon bedrock APIs to extract document type and compliance metadata from document content. Generate the classes in respective individual files but keep them in `documentClassifier` directory.
+Task: Refer to component design in the design/document_classifier_component.md file. Generate a very simple and intuitive Python implementation for the Document Classification Component that is in the design. For the classifyDocument() method, use amazon bedrock APIs to extract document type, compliance metadata, and regulatory classification from document content. Generate the classes in respective individual files but keep them in `documentClassifier` directory.
 
 Refer to the generated codes in documentClassifier directory. I want the DocumentAnalyzer component to make a call to GenAI. The current implementation uses basic pattern matching. Can you analyse and give me a plan on how I can leverage GenAI for both Document Classification and Compliance Validation.
 ```
 
-### **Activity 6: Build IaC/Rest APIs** (25 minutes)
+### **Activity 6: Enterprise Architecture** (40 minutes)
 **AI-DLC Personas:** Developers (Lead) + AI
-```
-Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to the services.py under the documentClassifier/ folder. Create python flask apis for each of the service there.
-```
-
-## OPERATIONS PHASE (1 hour)
-
-### **Activity 7: Architecture & Deployment** (45 minutes)
-**AI-DLC Personas:** Developers (Lead) + Product Owner + AI
 ```
 Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
@@ -325,52 +356,78 @@ Once I approve the plan:
 - Review the validation report and fix all identified issues, update the validation report.
 ```
 
-### **Activity 8: Enterprise Operations & Monitoring** (15 minutes)
+### **Activity 7: Enterprise APIs** (20 minutes)
+**AI-DLC Personas:** Developers (Lead) + AI
+
+```
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Task: Refer to the services.py under the documentClassifier/ folder. Create python flask apis for each of the service there.
+```
+
+## OPERATIONS PHASE (1.5 hours)
+
+### **Activity 8: Enterprise Deployment and Validation** (60 minutes)
 **AI-DLC Personas:** Developers + Product Owner + AI
 
-**Advanced Operations Phase Activities:**
-- **Deployment Units:** AI packages modules into operational artifacts (container images, serverless functions, infrastructure stacks)
-- **Testing & Validation:** AI executes comprehensive test suites (functional, security, performance, compliance)
-- **Observability:** AI analyzes enterprise telemetry data and correlates failure points with code changes
-- **Incident Response:** AI integrates with enterprise runbooks and proposes scaling, tuning, or fault isolation actions
-- **Compliance Monitoring:** AI ensures deployment readiness for regulated financial services environment
+**Enterprise Operations Phase Activities:**
+- AI packages the enterprise platform into Deployment Units:
+  - Container images for Kubernetes environments
+  - Serverless functions (AWS Lambda) for document processing
+  - Infrastructure components (CDK stacks) for multi-tenant architecture
+- AI generates comprehensive enterprise test suites:
+  - Functional acceptance tests for document management workflows
+  - Static and dynamic security tests for compliance requirements
+  - Load testing scenarios for 500+ concurrent users and 100K+ documents
+  - Integration tests with enterprise systems (Active Directory, SharePoint)
+- AI executes test suites, analyzes results, and correlates failure points with:
+  - Code changes in document classification algorithms
+  - Configuration issues in multi-tenant settings
+  - Performance bottlenecks in search indexing
+- AI proposes enterprise-grade fixes and optimizations
+
+### **Activity 9: Enterprise Operations and Monitoring** (30 minutes)
+**AI-DLC Personas:** Developers + Product Owner + AI
+
+**Advanced Enterprise Operations:**
+- AI analyzes enterprise telemetry data including:
+  - Business metrics (document processing accuracy, search relevance)
+  - Technical metrics (API latency, database performance, search response times)
+  - Compliance metrics (audit trail completeness, data retention compliance)
+- AI detects patterns and predicts potential SLA violations:
+  - Document classification accuracy degradation
+  - Search performance issues during peak usage
+  - Compliance violation risks in document handling
+- AI integrates with enterprise incident runbooks and proposes actions:
+  - Auto-scaling document processing clusters
+  - Rebalancing search index distribution
+  - Triggering compliance remediation workflows
+- AI generates compliance reports and audit documentation
+- Developers validate all AI recommendations ensuring enterprise governance requirements
 
 ---
 
 ## Workshop Series Summary
 
-### **Consistent AI-DLC Three-Phase Structure**
+### **Complete AI-DLC Implementation Across All Tiers**
 
-All workshop tiers follow the identical AI-DLC methodology with proper phase terminology:
+Each workshop tier implements the **complete end-to-end AI-DLC methodology** with all official prompts from Appendix A:
 
-| **Phase** | **Primary Personas** | **Key Activities** | **AI-DLC Focus** |
-|-----------|---------------------|-------------------|------------------|
-| **Inception** | Product Owner + AI | Setup, User Stories, Units | Mob Elaboration |
-| **Construction** | Developers + AI | Domain Design, Code Generation, APIs | Mob Programming |
-| **Operations** | Developers + Product Owner + AI | Architecture, Deployment, Monitoring | AI-Driven Operations |
+| **Phase** | **Primary Personas** | **Tier 1 Duration** | **Tier 2 Duration** | **Tier 3 Duration** |
+|-----------|---------------------|---------------------|---------------------|---------------------|
+| **INCEPTION** | Product Owner + AI | 1.5 hours | 1.5 hours | 2 hours |
+| **CONSTRUCTION** | Developers + AI | 2.5 hours | 3 hours | 3.5 hours |
+| **OPERATIONS** | All Personas + AI | 1 hour | 1.5 hours | 1.5 hours |
 
-### **Proper AI-DLC Terminology Used**
-- ✅ **Phases** (not "Steps"): Inception, Construction, Operations
-- ✅ **Activities** (not "Steps"): Setup, User Stories, Domain Design, etc.
-- ✅ **Personas** explicitly highlighted: Product Owner, Developers, AI
-- ✅ **Mob Elaboration, Mob Programming** terminology included
-- ✅ **Operations Phase** properly called out with monitoring and observability
+### **Proper AI-DLC Terminology**
+- ✅ **Phases**: Inception, Construction, Operations (explicitly called out)
+- ✅ **Activities**: Setup, User Stories, Domain Design, etc. (not "steps")
+- ✅ **Personas**: Product Owner, Developers, AI (highlighted throughout)
+- ✅ **Operations Phase**: Fully implemented with deployment and monitoring
 
-### **Tier Differentiation Through Project Scope Only**
+### **Progressive Complexity with Consistent Methodology**
+- **Tier 1**: Personal task manager with basic AI integration
+- **Tier 2**: Business feedback system with advanced AI features  
+- **Tier 3**: Enterprise platform with compliance and scale requirements
 
-| Aspect | Beginner | Intermediate | Advanced |
-|--------|----------|--------------|----------|
-| **Project** | Personal Task Manager | Customer Feedback System | Enterprise Asset Management |
-| **Complexity** | Simple CRUD operations | AI-powered analysis | Enterprise compliance & scale |
-| **Duration** | 4 hours | 5 hours | 6 hours |
-| **AI Integration** | Basic rule-based logic | AWS Comprehend/Bedrock | Advanced ML with compliance |
-| **Operations Focus** | Basic deployment | Standard monitoring | Enterprise observability |
-
-### **AI-DLC Artifacts Covered**
-- **Intent:** High-level business purpose statements
-- **Units:** Cohesive, self-contained work elements
-- **Bolts:** Rapid iteration cycles (hours/days)
-- **Domain Design:** Business logic modeling (DDD principles)
-- **Deployment Units:** Operational artifacts ready for production
-
-This approach ensures all participants learn the authentic AI-DLC methodology exactly as designed by AWS, with consistent terminology and proper phase structure across all skill levels.
+All participants experience the complete AI-DLC workflow exactly as designed by AWS, learning authentic methodology that transfers directly to real-world projects.
