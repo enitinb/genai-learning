@@ -68,7 +68,7 @@ Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the sam
 ```
 Your Role: You are an experienced software architect. Before you start the task as mentioned below, please do the planning and write your steps in the units_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Refer to the user stories mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the design/ folder.
+Your Task: Refer to the user stories mvp_user_stories.md file. Group the user stories into multiple units that can be built independently. Each unit contains highly cohesive user stories that can be built by a single team. The units are loosely coupled with each other. For each unit, write their respective user stories and acceptance criteria in individual md files in the aidlc-docs/design-artifacts/ folder.
 ```
 
 **When AI shows you the plan, respond exactly:**
@@ -113,14 +113,14 @@ I approve the plan. Proceed. After completing each step, mark the checkbox in yo
 ```
 Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an aidlc-docs/plans/code_generation_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to component design in the aidlc-docs/design-artifacts/task_component_model.md file. Generate a very simple and intuitive Python implementation for the Task Management Component that is in the design. For the prioritizeTask() method, use basic rule-based logic to assign priority scores. Generate the classes in respective individual files but keep them in `backend/taskManager` directory.
+Task: Refer to component design in the aidlc-docs/design-artifacts/task_component_model.md file. Generate a very simple and intuitive Python implementation for the Task Management Component that is in the design. For the prioritizeTask() method, use basic rule-based logic to assign priority scores. Generate the classes in respective individual files but keep them in `taskManager` directory.
 ```
 
 **Expected Files Created:**
 - `aidlc-docs/plans/code_generation_plan.md`
-- `backend/taskManager/task.py`
-- `backend/taskManager/task_service.py`
-- `backend/taskManager/priority_calculator.py`
+- `taskManager/task.py`
+- `taskManager/task_service.py`
+- `taskManager/priority_calculator.py`
 
 ### Activity 6: Architecture Planning (15 minutes)
 **Personas:** Developers (Lead) + AI
@@ -128,23 +128,23 @@ Task: Refer to component design in the aidlc-docs/design-artifacts/task_componen
 **Copy this exact prompt:**
 
 ```
-Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in an aidlc-docs/plans/deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+Your Role: You are an experienced Cloud Architect. Before you start the task as mentioned below, please do the planning and write your steps in a deployment_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer component design model: aidlc-docs/design-artifacts/task_component_model.md, units in the aidlc-docs/design-artifacts/ folder, and backend code in the backend/taskManager/ folder. Complete the following:
+Task: Refer component design model: aidlc-docs/design-artifacts/task_component_model.md, units in the aidlc-docs/design-artifacts/ folder, and backend code in the taskManager/ folder. Complete the following:
 - Generate a end-to-end plan for deployment of the backend on AWS cloud using CloudFormation.
 - Document all the pre-requisites for the deployment, if any.
 
 Once I approve the plan:
 - Follow the best practice of clean, simple, explainable coding.
-- All output code goes in the deployment/ folder.
+- All output code goes in the DEPLOYMENT/ folder.
 - Validate that the generated code works as intended, by creating a validation plan, generate a validation report.
 - Review the validation report and fix all identified issues, update the validation report.
 ```
 
 **Expected Files Created:**
-- `aidlc-docs/plans/deployment_plan.md`
-- `deployment/cloudformation-template.yaml`
-- `deployment/deployment-guide.md`
+- `deployment_plan.md`
+- `DEPLOYMENT/cloudformation-template.yaml`
+- `DEPLOYMENT/deployment-guide.md`
 
 ### Activity 7: Build APIs (15 minutes)
 **Personas:** Developers (Lead) + AI
@@ -152,15 +152,15 @@ Once I approve the plan:
 **Copy this exact prompt:**
 
 ```
-Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an aidlc-docs/plans/api_build_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Task: Refer to the services.py under the backend/taskManager/ folder. Create python flask apis for each of the service there.
+Task: Refer to the services.py under the taskManager/ folder. Create python flask apis for each of the service there.
 ```
 
 **Expected Files Created:**
-- `aidlc-docs/plans/api_build_plan.md`
-- `backend/taskManager/app.py` (Flask application)
-- `backend/taskManager/requirements.txt`
+- `api_build_plan.md`
+- `taskManager/app.py` (Flask application)
+- `taskManager/requirements.txt`
 
 ---
 
@@ -196,9 +196,9 @@ Please explain how AI-DLC Operations Phase would work for our specific task mana
 
 ### Run Locally (10 minutes)
 
-1. **Navigate to your backend folder:**
+1. **Navigate to your task manager folder:**
 ```bash
-cd backend/taskManager
+cd taskManager
 pip install -r requirements.txt
 python app.py
 ```
@@ -217,7 +217,7 @@ curl -X PUT http://localhost:5000/tasks/1/priority
 
 ### Deploy to AWS (Optional)
 
-Use the CloudFormation template generated in `deployment/cloudformation-template.yaml` to deploy to AWS following the deployment guide.
+Use the CloudFormation template generated in `DEPLOYMENT/cloudformation-template.yaml` to deploy to AWS following the deployment guide.
 
 ---
 
@@ -247,27 +247,26 @@ project-root/
 │   ├── plans/
 │   │   ├── user_stories_plan.md
 │   │   ├── units_plan.md
-│   │   ├── component_model_plan.md
-│   │   ├── code_generation_plan.md
-│   │   ├── deployment_plan.md
-│   │   └── api_build_plan.md
+│   │   └── code_generation_plan.md
 │   ├── story-artifacts/
 │   │   └── mvp_user_stories.md
 │   ├── design-artifacts/
+│   │   ├── component_model_plan.md
 │   │   ├── task_management_unit.md
 │   │   ├── productivity_tracking_unit.md
 │   │   └── task_component_model.md
 │   └── prompts.md
-├── backend/
-│   └── taskManager/
-│       ├── task.py
-│       ├── task_service.py
-│       ├── priority_calculator.py
-│       ├── app.py
-│       └── requirements.txt
-└── deployment/
-    ├── cloudformation-template.yaml
-    └── deployment-guide.md
+├── taskManager/
+│   ├── task.py
+│   ├── task_service.py
+│   ├── priority_calculator.py
+│   ├── app.py
+│   └── requirements.txt
+├── DEPLOYMENT/
+│   ├── cloudformation-template.yaml
+│   └── deployment-guide.md
+├── deployment_plan.md
+└── api_build_plan.md
 ```
 
 **Congratulations!** You've successfully completed an end-to-end AI-DLC project and built a working application using the official AWS methodology.
