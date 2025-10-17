@@ -5,151 +5,505 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Podcast Generator</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --background-dark: #0f172a;
+            --background-light: #f8fafc;
+            --surface-dark: #1e293b;
+            --surface-light: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background-dark);
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(228,100%,74%,0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.1) 0px, transparent 50%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
+            background: var(--surface-light);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+            max-width: 900px;
             width: 100%;
-            padding: 40px;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
         }
 
         h1 {
-            color: #333;
-            margin-bottom: 30px;
+            color: var(--text-primary);
+            margin-bottom: 40px;
             text-align: center;
-            font-size: 2.5em;
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .input-group {
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
         label {
             display: block;
-            color: #555;
-            font-weight: 600;
-            margin-bottom: 10px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 12px;
+            font-size: 0.875rem;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
         }
 
         input[type="text"] {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
+            padding: 16px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
             font-size: 16px;
-            transition: border-color 0.3s;
+            font-family: inherit;
+            background: var(--surface-light);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
         }
 
         input[type="text"]:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            transform: translateY(-1px);
         }
 
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--accent-color);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: inherit;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-right: 10px;
+            transition: all 0.2s ease;
+            margin-right: 12px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
+            background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn:active {
+            transform: translateY(0);
         }
 
         .btn:disabled {
-            opacity: 0.6;
+            opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:disabled:hover {
+            background: var(--accent-color);
             transform: none;
         }
 
         .btn-stop {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .btn-stop:hover {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
         }
 
         .script-container {
-            margin-top: 30px;
-            max-height: 400px;
+            margin-top: 40px;
+            max-height: 500px;
             overflow-y: auto;
+            border-radius: 16px;
+            background: rgba(248, 250, 252, 0.5);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .script-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .script-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .script-container::-webkit-scrollbar-thumb {
+            background: var(--text-light);
+            border-radius: 3px;
+        }
+
+        .script-container::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
         }
 
         .script-line {
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            transition: background-color 0.3s;
+            padding: 20px 24px;
+            margin: 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            position: relative;
+        }
+
+        .script-line:last-child {
+            border-bottom: none;
+        }
+
+        .script-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            transition: all 0.3s ease;
         }
 
         .script-line.alex {
-            background: #e3f2fd;
-            border-left: 4px solid #2196f3;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(147, 197, 253, 0.05) 100%);
+        }
+
+        .script-line.alex::before {
+            background: linear-gradient(135deg, #3b82f6 0%, #93c5fd 100%);
         }
 
         .script-line.sam {
-            background: #f3e5f5;
-            border-left: 4px solid #9c27b0;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(196, 181, 253, 0.05) 100%);
+        }
+
+        .script-line.sam::before {
+            background: linear-gradient(135deg, #a855f7 0%, #c4b5fd 100%);
         }
 
         .script-line.playing {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            animation: pulse 1s infinite;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(252, 211, 77, 0.1) 100%);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+            animation: pulse 2s infinite;
+        }
+
+        .script-line.playing::before {
+            background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
+            width: 6px;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+            0%, 100% { 
+                opacity: 1;
+                box-shadow: var(--shadow-md);
+            }
+            50% { 
+                opacity: 0.95;
+                box-shadow: var(--shadow-lg);
+            }
         }
 
         .speaker {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .script-line.alex .speaker {
+            color: #3b82f6;
+        }
+
+        .script-line.sam .speaker {
+            color: #a855f7;
         }
 
         .text {
-            color: #555;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
         }
 
         .loading {
             text-align: center;
-            padding: 20px;
-            color: #667eea;
+            padding: 32px;
+            color: var(--accent-color);
+            font-weight: 500;
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .error {
+            text-align: center;
+            padding: 24px;
+            color: #dc2626;
+            font-weight: 500;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(248, 113, 113, 0.05) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Progress indicator styles */
+        .progress-container {
+            background: rgba(248, 250, 252, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+            padding: 16px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .progress-step.pending {
+            background: rgba(148, 163, 184, 0.1);
+            color: var(--text-light);
+        }
+
+        .progress-step.active {
+            background: rgba(59, 130, 246, 0.1);
+            color: #1d4ed8;
+            border-left: 4px solid #3b82f6;
+            transform: translateX(4px);
+        }
+
+        .progress-step.completed {
+            background: rgba(34, 197, 94, 0.1);
+            color: #15803d;
+            border-left: 4px solid #22c55e;
+        }
+
+        .progress-step.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+            border-left: 4px solid #ef4444;
+        }
+
+        .step-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 14px;
             font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-icon.pending {
+            background: var(--text-light);
+            color: white;
+        }
+
+        .step-icon.active {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .step-icon.completed {
+            background: #22c55e;
+            color: white;
+        }
+
+        .step-icon.error {
+            background: #ef4444;
+            color: white;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .step-description {
+            font-size: 13px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .step-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            border-top: 2px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Status message styles */
+        .status-message {
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 16px 0;
+            font-size: 14px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .status-message.info {
+            background: rgba(59, 130, 246, 0.1);
+            color: #1d4ed8;
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .status-message.success {
+            background: rgba(34, 197, 94, 0.1);
+            color: #15803d;
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+
+        .status-message.warning {
+            background: rgba(251, 191, 36, 0.1);
+            color: #d97706;
+            border-color: rgba(251, 191, 36, 0.2);
+        }
+
+        .status-message.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+
+        .error-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .error-actions .btn {
+            padding: 8px 16px;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .feedback-section {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .dismiss-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0.6;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dismiss-btn:hover {
+            opacity: 1;
         }
 
         .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
+            border: 3px solid rgba(99, 102, 241, 0.1);
+            border-top: 3px solid var(--accent-color);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             animation: spin 1s linear infinite;
-            margin: 20px auto;
+            margin: 16px auto;
         }
 
         @keyframes spin {
@@ -159,8 +513,338 @@
 
         .controls {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            padding: 24px;
+            background: rgba(248, 250, 252, 0.5);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .speed-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+        }
+
+        .speed-controls label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0;
+            text-transform: none;
+        }
+
+        .speed-controls select {
+            background: var(--surface-light);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .speed-controls select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .speed-controls select:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: rgba(248, 250, 252, 0.5);
+        }
+
+        /* Input method selector styles */
+        .input-method-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+            padding: 8px;
+            background: rgba(248, 250, 252, 0.3);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .method-option {
+            padding: 20px 16px;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: var(--surface-light);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .method-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .method-option:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .method-option:hover::before {
+            opacity: 1;
+        }
+
+        .method-option.active {
+            border-color: var(--accent-color);
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .method-option.active::before {
+            opacity: 0;
+        }
+
+        .method-option h3 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .method-option p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .method-option.active p {
+            opacity: 0.9;
+        }
+
+        /* File upload styles */
+        .file-upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 16px;
+            padding: 48px 32px;
+            text-align: center;
+            background: rgba(248, 250, 252, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-upload-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(168, 85, 247, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--accent-color);
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .file-upload-area:hover::before {
+            opacity: 1;
+        }
+
+        .file-upload-area.dragover {
+            border-color: var(--accent-color);
+            background: rgba(99, 102, 241, 0.1);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(248, 250, 252, 0.8);
+            border-radius: 12px;
+            font-size: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Text area styles */
+        .text-input-area {
+            position: relative;
+        }
+
+        .text-content {
+            width: 100%;
+            min-height: 240px;
+            padding: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            font-size: 15px;
+            font-family: inherit;
+            resize: vertical;
+            transition: all 0.2s ease;
+            background: var(--surface-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .text-content:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .word-counter {
+            position: absolute;
+            bottom: 16px;
+            right: 20px;
+            font-size: 12px;
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .word-counter.warning {
+            color: #f59e0b;
+            background: rgba(251, 191, 36, 0.1);
+            border-color: rgba(251, 191, 36, 0.2);
+        }
+
+        /* Input area visibility */
+        .input-area {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .input-area.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 24px;
+                margin: 16px;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+                margin-bottom: 32px;
+            }
+
+            .input-method-selector {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .speed-controls {
+                margin-left: 0;
+                justify-content: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .script-container {
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .method-option {
+                padding: 16px 12px;
+            }
+
+            .file-upload-area {
+                padding: 32px 16px;
+            }
+        }
+
+        /* Additional sophisticated touches */
+        .container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
+        }
+
+        /* Smooth transitions for all interactive elements */
+        * {
+            transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Focus styles for accessibility */
+        .btn:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        .method-option:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -168,27 +852,92 @@
     <div class="container">
         <h1>🎙️ AI Podcast Generator</h1>
         
-        <div class="input-group">
-            <label for="topic">Podcast Topic</label>
-            <input 
-                type="text" 
-                id="topic" 
-                placeholder="e.g., The Future of Artificial Intelligence"
-                value="The Future of Artificial Intelligence"
-            >
+        <!-- Input Method Selector -->
+        <div class="input-method-selector">
+            <div class="method-option active" data-method="topic">
+                <h3>📝 Topic</h3>
+                <p>Let AI research and discuss a topic</p>
+            </div>
+            <div class="method-option" data-method="file">
+                <h3>📁 Upload File</h3>
+                <p>Upload your research document</p>
+            </div>
+            <div class="method-option" data-method="text">
+                <h3>✏️ Paste Content</h3>
+                <p>Paste your prepared content</p>
+            </div>
+        </div>
+
+        <!-- Topic Input (existing) -->
+        <div class="input-area active" id="topic-input">
+            <div class="input-group">
+                <label for="topic">Podcast Topic</label>
+                <input 
+                    type="text" 
+                    id="topic" 
+                    placeholder="e.g., The Future of Artificial Intelligence"
+                    value="The Future of Artificial Intelligence"
+                >
+            </div>
+        </div>
+
+        <!-- File Upload Input -->
+        <div class="input-area" id="file-input">
+            <div class="input-group">
+                <label>Upload Document</label>
+                <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                    <div>
+                        <strong>Click to upload</strong> or drag and drop your file here
+                        <br>
+                        <small>Supported formats: .txt, .md, .pdf, .docx (max 10MB)</small>
+                    </div>
+                    <input type="file" id="fileInput" class="file-input" accept=".txt,.md,.pdf,.docx">
+                </div>
+                <div id="fileInfo" class="file-info" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Text Paste Input -->
+        <div class="input-area" id="text-input">
+            <div class="input-group">
+                <label for="textContent">Paste Your Content</label>
+                <div class="text-input-area">
+                    <textarea 
+                        id="textContent" 
+                        class="text-content" 
+                        placeholder="Paste your research, article, or content here..."
+                    ></textarea>
+                    <div id="wordCounter" class="word-counter">0 words</div>
+                </div>
+            </div>
         </div>
 
         <div class="controls">
             <button class="btn" id="generateBtn" onclick="generateScript()">
                 Generate Podcast
             </button>
-            <button class="btn btn-stop" id="playBtn" onclick="playPodcast()" disabled>
-                Play Podcast
+            <button class="btn btn-stop" id="playBtn" onclick="handlePlayResume()" disabled>
+                ▶️ Play Podcast
+            </button>
+            <button class="btn btn-stop" id="pauseBtn" onclick="pausePodcast()" disabled style="display: none;">
+                ⏸️ Pause
             </button>
             <button class="btn btn-stop" id="stopBtn" onclick="stopPodcast()" disabled>
-                Stop
+                ⏹️ Stop
             </button>
+            <div class="speed-controls" style="display: inline-block; margin-left: 15px;">
+                <label for="speedSelect" style="margin-right: 5px; font-size: 14px;">Speed:</label>
+                <select id="speedSelect" onchange="changePlaybackSpeed()" disabled style="padding: 8px; border-radius: 5px; border: 1px solid #ddd;">
+                    <option value="0.75">0.75x</option>
+                    <option value="1" selected>1x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                </select>
+            </div>
         </div>
+
+
 
         <div id="scriptContainer" class="script-container"></div>
     </div>
@@ -200,34 +949,1016 @@
         let script = [];
         let currentIndex = 0;
         let isPlaying = false;
+        let isPaused = false;
         let audioCache = [];
+        let currentInputMethod = 'topic';
+        let uploadedFileContent = '';
+        let currentContent = '';
+        let playbackSpeed = 1.0;
+
+        // Input method switching
+        function initializeInputMethods() {
+            const methodOptions = document.querySelectorAll('.method-option');
+            const inputAreas = document.querySelectorAll('.input-area');
+            
+            methodOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const method = option.dataset.method;
+                    switchInputMethod(method);
+                });
+            });
+
+            // Initialize file upload
+            const fileInput = document.getElementById('fileInput');
+            const fileUploadArea = document.querySelector('.file-upload-area');
+            
+            fileInput.addEventListener('change', handleFileSelect);
+            
+            // Drag and drop functionality
+            fileUploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileUploadArea.classList.add('dragover');
+            });
+            
+            fileUploadArea.addEventListener('dragleave', () => {
+                fileUploadArea.classList.remove('dragover');
+            });
+            
+            fileUploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileUploadArea.classList.remove('dragover');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    fileInput.files = files;
+                    handleFileSelect();
+                }
+            });
+
+            // Text area word counting
+            const textContent = document.getElementById('textContent');
+            textContent.addEventListener('input', updateWordCount);
+            
+            // Topic input validation
+            const topicInput = document.getElementById('topic');
+            topicInput.addEventListener('input', () => {
+                if (currentInputMethod === 'topic') {
+                    const generateBtn = document.getElementById('generateBtn');
+                    generateBtn.disabled = !topicInput.value.trim();
+                }
+            });
+        }
+
+        function switchInputMethod(method) {
+            // Update active method option
+            document.querySelectorAll('.method-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            document.querySelector(`[data-method="${method}"]`).classList.add('active');
+            
+            // Update active input area
+            document.querySelectorAll('.input-area').forEach(area => {
+                area.classList.remove('active');
+            });
+            document.getElementById(`${method}-input`).classList.add('active');
+            
+            // Clear previous content
+            clearContent();
+            currentInputMethod = method;
+            
+            // Set appropriate generate button state based on method
+            const generateBtn = document.getElementById('generateBtn');
+            if (method === 'topic') {
+                // For topic method, enable if there's a default topic or user enters one
+                const topicInput = document.getElementById('topic');
+                generateBtn.disabled = !topicInput.value.trim();
+            } else {
+                // For file and text methods, disable until content is provided
+                generateBtn.disabled = true;
+            }
+        }
+
+        function clearContent() {
+            // Clear topic input
+            document.getElementById('topic').value = '';
+            
+            // Clear file input
+            document.getElementById('fileInput').value = '';
+            document.getElementById('fileInfo').style.display = 'none';
+            uploadedFileContent = '';
+            
+            // Clear text input
+            document.getElementById('textContent').value = '';
+            updateWordCount();
+            
+            // Remove any processing info elements
+            const textProcessingInfo = document.getElementById('textProcessingInfo');
+            if (textProcessingInfo) {
+                textProcessingInfo.remove();
+            }
+            
+            currentContent = '';
+            
+            // Reset generate button state
+            document.getElementById('generateBtn').disabled = currentInputMethod !== 'topic';
+        }
+
+        async function handleFileSelect() {
+            const fileInput = document.getElementById('fileInput');
+            const fileInfo = document.getElementById('fileInfo');
+            
+            if (fileInput.files.length === 0) return;
+            
+            const file = fileInput.files[0];
+            fileInfo.style.display = 'block';
+            
+            // Show detailed upload progress
+            fileInfo.innerHTML = `
+                <div class="progress-container">
+                    <div class="status-message info">
+                        <strong>📁 Processing File Upload</strong><br>
+                        Uploading and extracting content from ${file.name}...
+                    </div>
+                    <div class="progress-step active">
+                        <div class="step-icon active"><div class="step-spinner"></div></div>
+                        <div class="step-content">
+                            <div class="step-title">Uploading File</div>
+                            <div class="step-description">Transferring ${(file.size / 1024 / 1024).toFixed(2)} MB...</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                setLastOperation('fileUpload', { filename: file.name });
+                
+                // Update progress to show processing
+                setTimeout(() => {
+                    const stepElement = fileInfo.querySelector('.progress-step');
+                    const iconElement = stepElement.querySelector('.step-icon');
+                    const descElement = stepElement.querySelector('.step-description');
+                    
+                    stepElement.classList.remove('active');
+                    stepElement.classList.add('completed');
+                    iconElement.classList.remove('active');
+                    iconElement.classList.add('completed');
+                    iconElement.innerHTML = '✓';
+                    descElement.textContent = 'Upload complete, extracting text...';
+                }, 500);
+                
+                const response = await safeFetch(`${API_URL}/upload-file`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                uploadedFileContent = data.content;
+                currentContent = data.content;
+                
+                // Show successful upload with detailed information
+                const needsSummarization = data.word_count > 2000;
+                fileInfo.innerHTML = `
+                    <div class="progress-container">
+                        <div class="status-message success">
+                            <strong>✅ File Processed Successfully</strong><br>
+                            ${data.filename} has been uploaded and processed.
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-icon completed">✓</div>
+                            <div class="step-content">
+                                <div class="step-title">File Analysis Complete</div>
+                                <div class="step-description">
+                                    Type: ${data.file_type.toUpperCase()} • 
+                                    Size: ${(file.size / 1024 / 1024).toFixed(2)} MB • 
+                                    Words: ${data.word_count}
+                                </div>
+                            </div>
+                        </div>
+                        ${needsSummarization ? `
+                            <div class="status-message warning">
+                                <strong>⚠️ Content Processing Required</strong><br>
+                                Your content contains ${data.word_count} words (over 2000 limit). 
+                                It will be automatically summarized during podcast generation to ensure optimal conversation length.
+                            </div>
+                        ` : `
+                            <div class="status-message success">
+                                <strong>✅ Content Ready</strong><br>
+                                Your content (${data.word_count} words) is within the optimal length for podcast generation.
+                            </div>
+                        `}
+                    </div>
+                `;
+                
+                // Enable generate button since we have valid content
+                document.getElementById('generateBtn').disabled = false;
+                
+            } catch (error) {
+                // Use enhanced error handling for file upload
+                const shouldRetry = await errorHandler.handleError(error, 'fileUpload', {
+                    filename: file.name,
+                    size: file.size
+                });
+
+                if (shouldRetry) {
+                    // Retry file upload
+                    setTimeout(() => handleFileSelect(), 1000);
+                    return;
+                }
+
+                // Show detailed error information
+                const errorInfo = errorHandler.parseError(error);
+                fileInfo.innerHTML = `
+                    <div class="progress-container">
+                        <div class="status-message error">
+                            <strong>❌ ${errorHandler.getErrorTitle(errorInfo.type)}</strong><br>
+                            ${errorInfo.message}
+                            ${errorInfo.suggestion ? `<br><em>${errorInfo.suggestion}</em>` : ''}
+                        </div>
+                        <div class="progress-step error">
+                            <div class="step-icon error">✗</div>
+                            <div class="step-content">
+                                <div class="step-title">File Processing Failed</div>
+                                <div class="step-description">
+                                    ${errorHandler.getRecoveryOptions(errorInfo.type).slice(0, 2).join(' • ')}
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn" onclick="retryLastOperation('fileUpload', {})" 
+                                style="margin-top: 10px; padding: 8px 16px; font-size: 14px;">
+                            🔄 Try Again
+                        </button>
+                    </div>
+                `;
+                uploadedFileContent = '';
+                currentContent = '';
+                document.getElementById('generateBtn').disabled = true;
+            }
+        }
+
+        function updateWordCount() {
+            const textContent = document.getElementById('textContent');
+            const wordCounter = document.getElementById('wordCounter');
+            const generateBtn = document.getElementById('generateBtn');
+            const text = textContent.value;
+            
+            const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+            currentContent = text;
+            
+            // Update word counter display
+            if (wordCount === 0) {
+                wordCounter.textContent = '0 words';
+                wordCounter.classList.remove('warning');
+                generateBtn.disabled = true;
+            } else if (wordCount < 50) {
+                wordCounter.textContent = `${wordCount} words (minimum 50 needed)`;
+                wordCounter.classList.add('warning');
+                generateBtn.disabled = true;
+            } else if (wordCount > 2000) {
+                wordCounter.textContent = `${wordCount} words (will be summarized)`;
+                wordCounter.classList.add('warning');
+                generateBtn.disabled = false;
+            } else {
+                wordCounter.textContent = `${wordCount} words`;
+                wordCounter.classList.remove('warning');
+                generateBtn.disabled = false;
+            }
+            
+            // Add processing workflow information below text area
+            updateTextProcessingInfo(wordCount);
+        }
+        
+        function updateTextProcessingInfo(wordCount) {
+            let existingInfo = document.getElementById('textProcessingInfo');
+            if (existingInfo) {
+                existingInfo.remove();
+            }
+            
+            if (wordCount === 0) return;
+            
+            const textInputArea = document.querySelector('#text-input .text-input-area');
+            const infoDiv = document.createElement('div');
+            infoDiv.id = 'textProcessingInfo';
+            infoDiv.style.marginTop = '10px';
+            
+            if (wordCount < 50) {
+                infoDiv.innerHTML = `
+                    <div style="background: #fff3cd; padding: 10px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                        <strong>⚠️ More Content Needed</strong><br>
+                        Please add more content. Minimum 50 words required for podcast generation.
+                    </div>
+                `;
+            } else if (wordCount > 2000) {
+                infoDiv.innerHTML = `
+                    <div style="background: #fff3cd; padding: 10px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                        <strong>⚠️ Content Processing Required</strong><br>
+                        Your content exceeds 2000 words and will be automatically summarized during podcast generation to ensure optimal conversation length.
+                    </div>
+                `;
+            } else {
+                infoDiv.innerHTML = `
+                    <div style="background: #d4edda; padding: 10px; border-radius: 5px; border-left: 4px solid #28a745;">
+                        <strong>✅ Content Ready</strong><br>
+                        Your content is within the optimal length for podcast generation.
+                    </div>
+                `;
+            }
+            
+            textInputArea.appendChild(infoDiv);
+        }
+
+        // Enhanced progress tracking
+        let currentWorkflowSteps = [];
+        let currentStepIndex = 0;
+
+        function initializeWorkflowProgress(steps) {
+            currentWorkflowSteps = steps;
+            currentStepIndex = 0;
+            
+            const scriptContainer = document.getElementById('scriptContainer');
+            scriptContainer.innerHTML = `
+                <div class="progress-container">
+                    <div class="status-message info">
+                        <strong>🚀 Processing your request...</strong><br>
+                        Please wait while we process your content and generate the podcast.
+                    </div>
+                    <div id="progressSteps">
+                        ${steps.map((step, index) => `
+                            <div class="progress-step pending" id="step-${index}">
+                                <div class="step-icon pending">${index + 1}</div>
+                                <div class="step-content">
+                                    <div class="step-title">${step.title}</div>
+                                    <div class="step-description">${step.description}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateWorkflowStep(stepIndex, status, message = null) {
+            const stepElement = document.getElementById(`step-${stepIndex}`);
+            const iconElement = stepElement.querySelector('.step-icon');
+            
+            // Remove all status classes
+            stepElement.classList.remove('pending', 'active', 'completed', 'error');
+            iconElement.classList.remove('pending', 'active', 'completed', 'error');
+            
+            // Add new status class
+            stepElement.classList.add(status);
+            iconElement.classList.add(status);
+            
+            // Update icon content based on status
+            if (status === 'active') {
+                iconElement.innerHTML = '<div class="step-spinner"></div>';
+            } else if (status === 'completed') {
+                iconElement.innerHTML = '✓';
+            } else if (status === 'error') {
+                iconElement.innerHTML = '✗';
+            } else {
+                iconElement.innerHTML = stepIndex + 1;
+            }
+            
+            // Update description if message provided
+            if (message) {
+                const descElement = stepElement.querySelector('.step-description');
+                descElement.textContent = message;
+            }
+        }
+
+        function showWorkflowStatus(message, isError = false) {
+            const scriptContainer = document.getElementById('scriptContainer');
+            const statusClass = isError ? 'error' : 'loading';
+            const icon = isError ? '❌' : '<div class="spinner"></div>';
+            
+            scriptContainer.innerHTML = `
+                <div class="${statusClass}">
+                    ${icon}
+                    ${message}
+                </div>
+            `;
+        }
+
+        function showStatusMessage(message, type = 'info', options = {}) {
+            const scriptContainer = document.getElementById('scriptContainer');
+            const existingProgress = scriptContainer.querySelector('.progress-container');
+            
+            const messageId = `status-${Date.now()}`;
+            const dismissBtn = options.dismissible !== false ? `
+                <button class="dismiss-btn" onclick="dismissMessage('${messageId}')" title="Dismiss">×</button>
+            ` : '';
+            
+            const statusDiv = document.createElement('div');
+            statusDiv.className = `status-message ${type}`;
+            statusDiv.id = messageId;
+            statusDiv.innerHTML = `
+                ${dismissBtn}
+                ${message}
+            `;
+            
+            if (existingProgress) {
+                // Add status message to existing progress container
+                existingProgress.appendChild(statusDiv);
+            } else {
+                // Show standalone status message
+                scriptContainer.innerHTML = '';
+                scriptContainer.appendChild(statusDiv);
+            }
+            
+            // Auto-dismiss success messages after 5 seconds
+            if (type === 'success' && options.autoDismiss !== false) {
+                setTimeout(() => dismissMessage(messageId), 5000);
+            }
+        }
+
+        function dismissMessage(messageId) {
+            const message = document.getElementById(messageId);
+            if (message) {
+                message.style.transition = 'opacity 0.3s ease';
+                message.style.opacity = '0';
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.parentNode.removeChild(message);
+                    }
+                }, 300);
+            }
+        }
+
+        // Enhanced error reporting
+        function reportError(errorInfo, context = {}) {
+            const reportData = {
+                timestamp: new Date().toISOString(),
+                error: errorInfo,
+                context: context,
+                userAgent: navigator.userAgent,
+                url: window.location.href
+            };
+            
+            console.log('Error Report:', reportData);
+            
+            // In a real application, you would send this to your error tracking service
+            // Example: sendToErrorTracking(reportData);
+        }
+
+        function completeWorkflow(successMessage) {
+            const scriptContainer = document.getElementById('scriptContainer');
+            const progressContainer = scriptContainer.querySelector('.progress-container');
+            
+            if (progressContainer) {
+                // Add final success message
+                const successDiv = document.createElement('div');
+                successDiv.className = 'status-message success';
+                successDiv.innerHTML = `<strong>✅ ${successMessage}</strong>`;
+                progressContainer.appendChild(successDiv);
+                
+                // Hide progress after a delay
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                }, 2000);
+            }
+        }
+
+        function validateCurrentInput() {
+            if (currentInputMethod === 'topic') {
+                const topic = document.getElementById('topic').value;
+                return topic.trim() !== '';
+            } else if (currentInputMethod === 'file') {
+                return uploadedFileContent !== '';
+            } else if (currentInputMethod === 'text') {
+                const textContent = document.getElementById('textContent').value;
+                const wordCount = textContent.trim() ? textContent.trim().split(/\s+/).length : 0;
+                return wordCount >= 50;
+            }
+            return false;
+        }
+
+
+
+        // Enhanced error handling and recovery
+        class ErrorHandler {
+            constructor() {
+                this.retryAttempts = new Map();
+                this.maxRetries = 3;
+                this.retryDelay = 1000; // 1 second base delay
+            }
+
+            parseError(error) {
+                let errorInfo = {
+                    type: 'UNKNOWN_ERROR',
+                    message: error.message || 'An unknown error occurred',
+                    detail: '',
+                    suggestion: '',
+                    canRetry: false
+                };
+
+                try {
+                    // Try to parse structured error response
+                    if (error.message && error.message.includes('{')) {
+                        const errorResponse = JSON.parse(error.message);
+                        if (errorResponse.detail && typeof errorResponse.detail === 'object') {
+                            errorInfo.type = errorResponse.detail.error || 'UNKNOWN_ERROR';
+                            errorInfo.message = errorResponse.detail.detail || errorInfo.message;
+                            errorInfo.suggestion = errorResponse.detail.suggestion || '';
+                        }
+                    }
+                } catch (e) {
+                    // Not a structured error, analyze the message
+                    const message = error.message.toLowerCase();
+                    
+                    if (message.includes('network') || message.includes('fetch') || message.includes('connection')) {
+                        errorInfo.type = 'NETWORK_ERROR';
+                        errorInfo.canRetry = true;
+                        errorInfo.suggestion = 'Check your internet connection and try again';
+                    } else if (message.includes('timeout')) {
+                        errorInfo.type = 'TIMEOUT_ERROR';
+                        errorInfo.canRetry = true;
+                        errorInfo.suggestion = 'The request took too long. Try again with shorter content';
+                    } else if (message.includes('aws') || message.includes('bedrock') || message.includes('polly')) {
+                        errorInfo.type = 'AWS_SERVICE_ERROR';
+                        errorInfo.suggestion = 'Check AWS service configuration and credentials';
+                    } else if (message.includes('validation') || message.includes('invalid')) {
+                        errorInfo.type = 'VALIDATION_ERROR';
+                        errorInfo.suggestion = 'Please check your input format and try again';
+                    }
+                }
+
+                return errorInfo;
+            }
+
+            getRecoveryOptions(errorType, context = {}) {
+                const options = {
+                    NETWORK_ERROR: [
+                        'Check your internet connection',
+                        'Ensure the server is running on port 8000',
+                        'Try refreshing the page',
+                        'Disable VPN if using one'
+                    ],
+                    TIMEOUT_ERROR: [
+                        'Try again with shorter content',
+                        'Check your network speed',
+                        'Reduce file size if uploading',
+                        'Try during off-peak hours'
+                    ],
+                    AWS_SERVICE_ERROR: [
+                        'Configure AWS credentials',
+                        'Ensure Bedrock access in us-east-1 region',
+                        'Verify Polly service permissions',
+                        'Check AWS service status'
+                    ],
+                    VALIDATION_ERROR: [
+                        'Check your input format',
+                        'Ensure content meets minimum requirements',
+                        'Remove special characters if any',
+                        'Try with different content'
+                    ],
+                    FILE_ERROR: [
+                        'Try a different file format (.txt, .md, .pdf, .docx)',
+                        'Ensure file is not corrupted',
+                        'Check file size (max 10MB)',
+                        'Make sure file contains readable text'
+                    ],
+                    UNKNOWN_ERROR: [
+                        'Refresh the page and try again',
+                        'Clear browser cache',
+                        'Try in a different browser',
+                        'Contact support if issue persists'
+                    ]
+                };
+
+                return options[errorType] || options.UNKNOWN_ERROR;
+            }
+
+            async handleError(error, operation, context = {}) {
+                const errorInfo = this.parseError(error);
+                const operationKey = `${operation}_${JSON.stringify(context)}`;
+                
+                console.error(`Error in ${operation}:`, errorInfo);
+
+                // Check if we should retry
+                if (errorInfo.canRetry && this.shouldRetry(operationKey)) {
+                    return await this.retryOperation(operation, context, errorInfo);
+                }
+
+                // Show error with recovery options
+                this.showErrorWithRecovery(errorInfo, operation, context);
+                return null;
+            }
+
+            shouldRetry(operationKey) {
+                const attempts = this.retryAttempts.get(operationKey) || 0;
+                return attempts < this.maxRetries;
+            }
+
+            async retryOperation(operation, context, errorInfo) {
+                const operationKey = `${operation}_${JSON.stringify(context)}`;
+                const attempts = this.retryAttempts.get(operationKey) || 0;
+                
+                this.retryAttempts.set(operationKey, attempts + 1);
+                
+                // Show retry message
+                showStatusMessage(`
+                    <strong>🔄 Retrying Operation</strong><br>
+                    ${errorInfo.message}<br>
+                    Attempt ${attempts + 1} of ${this.maxRetries}...
+                `, 'info');
+
+                // Wait before retry with exponential backoff
+                const delay = this.retryDelay * Math.pow(2, attempts);
+                await new Promise(resolve => setTimeout(resolve, delay));
+
+                // Clear retry count on successful retry
+                setTimeout(() => {
+                    this.retryAttempts.delete(operationKey);
+                }, 30000); // Clear after 30 seconds
+
+                return true; // Indicate retry should happen
+            }
+
+            showErrorWithRecovery(errorInfo, operation, context = {}) {
+                const recoveryOptions = this.getRecoveryOptions(errorInfo.type, context);
+                
+                const retryButton = errorInfo.canRetry ? `
+                    <button class="btn" onclick="retryLastOperation('${operation}', ${JSON.stringify(context)})" 
+                            style="margin-top: 10px; padding: 8px 16px; font-size: 14px;">
+                        🔄 Try Again
+                    </button>
+                ` : '';
+
+                showStatusMessage(`
+                    <strong>❌ ${this.getErrorTitle(errorInfo.type)}</strong><br>
+                    ${errorInfo.message}<br>
+                    ${errorInfo.suggestion ? `<br><em>${errorInfo.suggestion}</em><br>` : ''}
+                    <div style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 5px;">
+                        <strong>Recovery Options:</strong><br>
+                        ${recoveryOptions.map(option => `• ${option}`).join('<br>')}
+                    </div>
+                    ${retryButton}
+                `, 'error');
+            }
+
+            getErrorTitle(errorType) {
+                const titles = {
+                    NETWORK_ERROR: 'Connection Problem',
+                    TIMEOUT_ERROR: 'Request Timeout',
+                    AWS_SERVICE_ERROR: 'Service Configuration Issue',
+                    VALIDATION_ERROR: 'Input Validation Failed',
+                    FILE_ERROR: 'File Processing Error',
+                    UNKNOWN_ERROR: 'Unexpected Error'
+                };
+                return titles[errorType] || 'Error Occurred';
+            }
+        }
+
+        // Global error handler instance
+        const errorHandler = new ErrorHandler();
+
+        // Retry functionality
+        let lastOperation = null;
+        let lastContext = {};
+
+        function setLastOperation(operation, context = {}) {
+            lastOperation = operation;
+            lastContext = context;
+        }
+
+        async function retryLastOperation(operation, context) {
+            if (operation === 'generateScript') {
+                await generateScript();
+            } else if (operation === 'fileUpload') {
+                const fileInput = document.getElementById('fileInput');
+                if (fileInput.files.length > 0) {
+                    await handleFileSelect();
+                }
+            } else if (operation === 'playPodcast') {
+                await playPodcast();
+            }
+        }
+
+        // Network status monitoring
+        function monitorNetworkStatus() {
+            window.addEventListener('online', () => {
+                showStatusMessage(`
+                    <strong>🌐 Connection Restored</strong><br>
+                    Your internet connection is back online.
+                `, 'success');
+            });
+
+            window.addEventListener('offline', () => {
+                showStatusMessage(`
+                    <strong>⚠️ Connection Lost</strong><br>
+                    You appear to be offline. Please check your internet connection.
+                `, 'warning');
+            });
+        }
+
+
+
+
+
+        // Enhanced fetch wrapper with error handling
+        async function safeFetch(url, options = {}) {
+            try {
+                // Add timeout to fetch requests
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 minute timeout
+
+                const response = await fetch(url, {
+                    ...options,
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                if (!response.ok) {
+                    const errorData = await response.text();
+                    let errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+                    
+                    try {
+                        const parsedError = JSON.parse(errorData);
+                        errorMessage = parsedError.detail || errorMessage;
+                    } catch (e) {
+                        // Use the raw error text if JSON parsing fails
+                        errorMessage = errorData || errorMessage;
+                    }
+                    
+                    throw new Error(errorMessage);
+                }
+
+                return response;
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    throw new Error('Request timeout - the server took longer than 2 minutes to respond');
+                }
+                throw error;
+            }
+        }
+
+        // System integration verification
+        async function verifySystemIntegration() {
+            try {
+                const response = await safeFetch(`${API_URL}/system-status`);
+                const systemStatus = await response.json();
+                
+                console.log('System Status:', systemStatus);
+                
+                // Check all required features
+                const requiredFeatures = [
+                    'topic_input', 'text_input', 'file_upload', 
+                    'content_processing', 'summarization', 
+                    'script_generation', 'speech_synthesis'
+                ];
+                
+                const missingFeatures = requiredFeatures.filter(
+                    feature => !systemStatus.features[feature]
+                );
+                
+                if (missingFeatures.length > 0) {
+                    showStatusMessage(`
+                        <strong>⚠️ System Integration Issue</strong><br>
+                        Missing features: ${missingFeatures.join(', ')}<br>
+                        Some functionality may not work properly.
+                    `, 'warning');
+                    return false;
+                }
+                
+                // Check service availability
+                const services = systemStatus.services || {};
+                const unavailableServices = Object.entries(services)
+                    .filter(([name, service]) => service.status !== 'available')
+                    .map(([name]) => name);
+                
+                if (unavailableServices.length > 0) {
+                    showStatusMessage(`
+                        <strong>⚠️ Service Availability Issue</strong><br>
+                        Unavailable services: ${unavailableServices.join(', ')}<br>
+                        Please check your AWS configuration.
+                    `, 'warning');
+                    return false;
+                }
+                
+                // All checks passed
+                showStatusMessage(`
+                    <strong>✅ System Integration Verified</strong><br>
+                    All features and services are available.<br>
+                    Version: ${systemStatus.version}
+                `, 'success');
+                
+                return true;
+                
+            } catch (error) {
+                console.error('System integration check failed:', error);
+                showStatusMessage(`
+                    <strong>❌ Integration Check Failed</strong><br>
+                    Could not verify system integration: ${error.message}
+                `, 'error');
+                return false;
+            }
+        }
+
+        // Test all input methods
+        async function testAllInputMethods() {
+            const testResults = {
+                topic: false,
+                text: false,
+                file: false
+            };
+            
+            showStatusMessage(`
+                <strong>🧪 Testing All Input Methods</strong><br>
+                Running integration tests for topic, text, and file inputs...
+            `, 'info');
+            
+            try {
+                // Test topic input
+                const topicResponse = await safeFetch(`${API_URL}/generate-script`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        input_type: 'topic',
+                        topic: 'Integration Test Topic'
+                    })
+                });
+                
+                if (topicResponse.ok) {
+                    const topicData = await topicResponse.json();
+                    testResults.topic = topicData.script && topicData.script.length > 0;
+                }
+                
+                // Test text input
+                const textResponse = await safeFetch(`${API_URL}/generate-script`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        input_type: 'text',
+                        content: 'This is a test content for integration testing. It contains enough words to meet the minimum requirements for podcast generation.'
+                    })
+                });
+                
+                if (textResponse.ok) {
+                    const textData = await textResponse.json();
+                    testResults.text = textData.script && textData.script.length > 0;
+                }
+                
+                // Test file processing (simulate with content processing)
+                const processResponse = await safeFetch(`${API_URL}/process-content`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: 'This is test file content for integration testing. It simulates file upload processing.',
+                        input_type: 'file'
+                    })
+                });
+                
+                if (processResponse.ok) {
+                    const processData = await processResponse.json();
+                    testResults.file = processData.processed_content && processData.processed_content.length > 0;
+                }
+                
+                // Show results
+                const passedTests = Object.values(testResults).filter(Boolean).length;
+                const totalTests = Object.keys(testResults).length;
+                
+                if (passedTests === totalTests) {
+                    showStatusMessage(`
+                        <strong>✅ All Input Methods Working</strong><br>
+                        Topic: ${testResults.topic ? '✅' : '❌'} | 
+                        Text: ${testResults.text ? '✅' : '❌'} | 
+                        File: ${testResults.file ? '✅' : '❌'}<br>
+                        System integration is complete and functional.
+                    `, 'success');
+                } else {
+                    showStatusMessage(`
+                        <strong>⚠️ Some Input Methods Failed</strong><br>
+                        Topic: ${testResults.topic ? '✅' : '❌'} | 
+                        Text: ${testResults.text ? '✅' : '❌'} | 
+                        File: ${testResults.file ? '❌' : '❌'}<br>
+                        Please check the failing methods.
+                    `, 'warning');
+                }
+                
+                return testResults;
+                
+            } catch (error) {
+                showStatusMessage(`
+                    <strong>❌ Integration Test Failed</strong><br>
+                    Error during testing: ${error.message}
+                `, 'error');
+                return testResults;
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            initializeInputMethods();
+            monitorNetworkStatus();
+            updatePlaybackControls(); // Initialize control states
+        });
 
         async function generateScript() {
-            const topic = document.getElementById('topic').value;
-            if (!topic.trim()) {
-                alert('Please enter a topic');
+            // Validate current input
+            if (!validateCurrentInput()) {
+                let errorMessage = '';
+                if (currentInputMethod === 'topic') {
+                    errorMessage = 'Please enter a topic';
+                } else if (currentInputMethod === 'file') {
+                    errorMessage = 'Please upload a file first';
+                } else if (currentInputMethod === 'text') {
+                    errorMessage = 'Please paste content (minimum 50 words required)';
+                }
+                showStatusMessage(`<strong>⚠️ Input Required</strong><br>${errorMessage}`, 'warning');
                 return;
             }
 
-            const generateBtn = document.getElementById('generateBtn');
-            const scriptContainer = document.getElementById('scriptContainer');
+            // Prepare request data based on current method
+            let requestData = {};
+            let contentToProcess = '';
             
-            generateBtn.disabled = true;
-            scriptContainer.innerHTML = '<div class="loading"><div class="spinner"></div>Generating podcast script...</div>';
+            if (currentInputMethod === 'topic') {
+                const topic = document.getElementById('topic').value;
+                requestData = {
+                    input_type: 'topic',
+                    topic: topic
+                };
+            } else if (currentInputMethod === 'file') {
+                contentToProcess = uploadedFileContent;
+                requestData = {
+                    input_type: 'file',
+                    content: contentToProcess
+                };
+            } else if (currentInputMethod === 'text') {
+                const textContent = document.getElementById('textContent').value;
+                contentToProcess = textContent;
+                requestData = {
+                    input_type: 'text',
+                    content: contentToProcess
+                };
+            }
 
+            const generateBtn = document.getElementById('generateBtn');
+            generateBtn.disabled = true;
+            
+            // Initialize progress tracking based on input method
+            let workflowSteps = [];
+            
+            if (currentInputMethod === 'topic') {
+                workflowSteps = [
+                    {
+                        title: 'Generating Script',
+                        description: 'Creating conversational podcast script from topic'
+                    },
+                    {
+                        title: 'Finalizing Content',
+                        description: 'Preparing script for audio generation'
+                    }
+                ];
+            } else {
+                workflowSteps = [
+                    {
+                        title: 'Processing Content',
+                        description: 'Validating and preparing your content'
+                    },
+                    {
+                        title: 'Generating Script',
+                        description: 'Converting content to conversational format'
+                    },
+                    {
+                        title: 'Finalizing Content',
+                        description: 'Preparing script for audio generation'
+                    }
+                ];
+            }
+            
+            initializeWorkflowProgress(workflowSteps);
+            
             try {
-                const response = await fetch(`${API_URL}/generate-script`, {
+                let stepIndex = 0;
+                
+                // Step 1: Process content if needed (file or text input)
+                if (currentInputMethod === 'file' || currentInputMethod === 'text') {
+                    updateWorkflowStep(stepIndex, 'active', 'Processing your content...');
+                    
+                    const processedContent = await processContentWorkflow(contentToProcess, stepIndex);
+                    if (processedContent) {
+                        requestData.content = processedContent;
+                        updateWorkflowStep(stepIndex, 'completed', 'Content processed successfully');
+                    } else {
+                        throw new Error('Content processing failed - no processed content returned');
+                    }
+                    stepIndex++;
+                }
+                
+                // Step 2: Generate script
+                updateWorkflowStep(stepIndex, 'active', 'Generating conversational script...');
+                setLastOperation('generateScript', { input_method: currentInputMethod });
+                
+                const response = await safeFetch(`${API_URL}/generate-script`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ topic })
+                    body: JSON.stringify(requestData)
                 });
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.detail || 'Server error');
-                }
 
                 const data = await response.json();
                 
@@ -235,17 +1966,106 @@
                     throw new Error('Invalid response format');
                 }
                 
+                updateWorkflowStep(stepIndex, 'completed', `Generated ${data.script.length} conversation lines`);
+                stepIndex++;
+                
+                // Step 3: Finalize
+                updateWorkflowStep(stepIndex, 'active', 'Preparing for audio generation...');
+                
                 script = data.script;
                 audioCache = [];
                 
-                displayScript();
-                document.getElementById('playBtn').disabled = false;
+                updateWorkflowStep(stepIndex, 'completed', 'Ready for podcast playback');
+                
+                // Complete workflow and show script
+                completeWorkflow('Podcast script generated successfully!');
+                
+                setTimeout(() => {
+                    displayScript();
+                    updatePlaybackControls();
+                }, 2000);
                 
             } catch (error) {
                 console.error('Error:', error);
-                scriptContainer.innerHTML = `<div class="loading">Error: ${error.message}<br><br>Make sure:<br>1. FastAPI server is running<br>2. AWS credentials are configured<br>3. You have Bedrock access</div>`;
+                
+                // Update current step as error
+                if (currentStepIndex < workflowSteps.length) {
+                    updateWorkflowStep(currentStepIndex, 'error', 'Failed - see details below');
+                }
+                
+                // Use enhanced error handling
+                const shouldRetry = await errorHandler.handleError(error, 'generateScript', {
+                    input_method: currentInputMethod,
+                    step_index: currentStepIndex
+                });
+
+                if (shouldRetry) {
+                    // Retry the operation
+                    setTimeout(() => generateScript(), 1000);
+                    return;
+                }
             } finally {
                 generateBtn.disabled = false;
+            }
+        }
+
+        async function processContentWorkflow(content, stepIndex) {
+            try {
+                // Update step with detailed processing message
+                const wordCount = content.trim() ? content.trim().split(/\s+/).length : 0;
+                if (wordCount > 2000) {
+                    updateWorkflowStep(stepIndex, 'active', `Processing ${wordCount} words (summarization required)...`);
+                } else {
+                    updateWorkflowStep(stepIndex, 'active', `Validating ${wordCount} words...`);
+                }
+                
+                const response = await safeFetch(`${API_URL}/process-content`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        content: content,
+                        input_type: currentInputMethod
+                    })
+                });
+                
+                const processedData = await response.json();
+                
+                // Update step with processing results
+                if (processedData.was_summarized) {
+                    updateWorkflowStep(stepIndex, 'active', 
+                        `Summarized from ${processedData.original_word_count} to ${processedData.final_word_count} words`);
+                    
+                    // Show additional status message for summarization
+                    showStatusMessage(`
+                        <strong>📝 Content Summarized</strong><br>
+                        Your content was automatically summarized to optimize podcast length.<br>
+                        Original: ${processedData.original_word_count} words → Final: ${processedData.final_word_count} words
+                    `, 'info');
+                } else {
+                    updateWorkflowStep(stepIndex, 'active', 
+                        `Content validated (${processedData.final_word_count} words)`);
+                }
+                
+                // Brief pause to show the processing results
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                return processedData.processed_content;
+                
+            } catch (error) {
+                // Use enhanced error handling for content processing
+                const shouldRetry = await errorHandler.handleError(error, 'processContent', {
+                    input_method: currentInputMethod,
+                    word_count: content.trim().split(/\s+/).length
+                });
+
+                if (shouldRetry) {
+                    // Retry content processing
+                    return await processContentWorkflow(content, stepIndex);
+                }
+                
+                throw error;
             }
         }
 
@@ -274,10 +2094,14 @@
             if (script.length === 0) return;
 
             isPlaying = true;
-            currentIndex = 0;
-            document.getElementById('playBtn').disabled = true;
-            document.getElementById('stopBtn').disabled = false;
-            document.getElementById('generateBtn').disabled = true;
+            isPaused = false;
+            
+            // If resuming, don't reset currentIndex
+            if (currentIndex === 0 || currentIndex >= script.length) {
+                currentIndex = 0;
+            }
+            
+            updatePlaybackControls();
 
             // Start generating audio in the background while playing
             generateAudioQueue();
@@ -286,13 +2110,92 @@
             await playNextLine();
         }
 
+        function pausePodcast() {
+            if (!isPlaying) return;
+            
+            isPaused = true;
+            isPlaying = false;
+            
+            // Pause current audio
+            const audio = document.getElementById('audioPlayer');
+            audio.pause();
+            
+            updatePlaybackControls();
+        }
+
+        function resumePodcast() {
+            if (isPaused) {
+                isPaused = false;
+                isPlaying = true;
+                updatePlaybackControls();
+                
+                // Resume from current position
+                playNextLine();
+            }
+        }
+
+        function changePlaybackSpeed() {
+            const speedSelect = document.getElementById('speedSelect');
+            playbackSpeed = parseFloat(speedSelect.value);
+            
+            // Apply speed to current audio if playing
+            const audio = document.getElementById('audioPlayer');
+            if (audio.src) {
+                audio.playbackRate = playbackSpeed;
+            }
+        }
+
+        function handlePlayResume() {
+            if (isPaused) {
+                resumePodcast();
+            } else {
+                playPodcast();
+            }
+        }
+
+        function updatePlaybackControls() {
+            const playBtn = document.getElementById('playBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            const generateBtn = document.getElementById('generateBtn');
+            const speedSelect = document.getElementById('speedSelect');
+            
+            if (isPlaying) {
+                // Currently playing
+                playBtn.style.display = 'none';
+                pauseBtn.style.display = 'inline-block';
+                pauseBtn.disabled = false;
+                stopBtn.disabled = false;
+                generateBtn.disabled = true;
+                speedSelect.disabled = false;
+            } else if (isPaused) {
+                // Currently paused
+                playBtn.innerHTML = '▶️ Resume';
+                playBtn.style.display = 'inline-block';
+                playBtn.disabled = false;
+                pauseBtn.style.display = 'none';
+                stopBtn.disabled = false;
+                generateBtn.disabled = true;
+                speedSelect.disabled = false;
+            } else {
+                // Stopped or not started
+                playBtn.innerHTML = '▶️ Play Podcast';
+                playBtn.style.display = 'inline-block';
+                playBtn.disabled = script.length === 0;
+                pauseBtn.style.display = 'none';
+                stopBtn.disabled = true;
+                generateBtn.disabled = false;
+                speedSelect.disabled = true;
+            }
+        }
+
         async function generateAudioQueue() {
             // Generate audio files one by one and add to cache
             for (let i = 0; i < script.length; i++) {
                 if (audioCache[i]) continue; // Skip if already cached
 
                 try {
-                    const response = await fetch(`${API_URL}/synthesize-speech`, {
+                    const response = await safeFetch(`${API_URL}/synthesize-speech`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -306,6 +2209,21 @@
                     console.log(`Audio ${i + 1}/${script.length} generated`);
                 } catch (error) {
                     console.error(`Error generating audio ${i}:`, error);
+                    
+                    // Use enhanced error handling for audio generation
+                    const shouldRetry = await errorHandler.handleError(error, 'audioGeneration', {
+                        line_index: i,
+                        speaker: script[i].speaker
+                    });
+
+                    if (shouldRetry) {
+                        // Retry this audio generation
+                        i--; // Retry the same index
+                        continue;
+                    }
+                    
+                    // If we can't generate this audio, create a placeholder
+                    audioCache[i] = null;
                 }
             }
         }
@@ -320,7 +2238,14 @@
             document.querySelectorAll('.script-line').forEach(el => {
                 el.classList.remove('playing');
             });
-            document.getElementById(`line-${currentIndex}`).classList.add('playing');
+            const currentLineElement = document.getElementById(`line-${currentIndex}`);
+            currentLineElement.classList.add('playing');
+            
+            // Auto-scroll to current line
+            currentLineElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
 
             try {
                 // Wait for audio to be generated if not ready yet
@@ -328,16 +2253,17 @@
                     await new Promise(resolve => setTimeout(resolve, 100));
                 }
 
-                if (!isPlaying) return; // Check if stopped while waiting
+                if (!isPlaying) return; // Check if stopped/paused while waiting
 
                 // Play audio from cache
                 const audio = document.getElementById('audioPlayer');
                 audio.src = audioCache[currentIndex];
+                audio.playbackRate = playbackSpeed; // Apply current speed
                 
                 const currentText = script[currentIndex].text.toLowerCase();
                 
-                // Determine pause duration based on content
-                let pauseDuration = 500; // Default pause
+                // Determine pause duration based on content and speed
+                let basePauseDuration = 500; // Default pause
                 
                 // Short reactions get minimal pause (more natural overlap feel)
                 const shortReactions = ['yeah', 'mm-hmm', 'uh-huh', 'oh', 'wow', 'really', 'right', 'exactly', 'hmm', 'i see', 'nice', 'cool', 'sure'];
@@ -348,16 +2274,25 @@
                 );
                 
                 if (isShortReaction) {
-                    pauseDuration = 200; // Quick transition for reactions
+                    basePauseDuration = 200; // Quick transition for reactions
                 } else if (currentText.endsWith('?')) {
-                    pauseDuration = 400; // Shorter pause after questions
+                    basePauseDuration = 400; // Shorter pause after questions
                 } else if (currentText.length > 100) {
-                    pauseDuration = 600; // Slightly longer pause after long statements
+                    basePauseDuration = 600; // Slightly longer pause after long statements
                 }
                 
+                // Adjust pause duration based on playback speed
+                const pauseDuration = basePauseDuration / playbackSpeed;
+                
                 audio.onended = () => {
-                    currentIndex++;
-                    setTimeout(() => playNextLine(), pauseDuration);
+                    if (isPlaying) { // Only continue if still playing (not paused)
+                        currentIndex++;
+                        setTimeout(() => playNextLine(), pauseDuration);
+                    }
+                };
+
+                audio.onpause = () => {
+                    // Audio was paused, don't advance to next line
                 };
 
                 await audio.play();
@@ -370,6 +2305,9 @@
 
         function stopPodcast() {
             isPlaying = false;
+            isPaused = false;
+            currentIndex = 0; // Reset to beginning
+            
             const audio = document.getElementById('audioPlayer');
             audio.pause();
             audio.currentTime = 0;
@@ -378,9 +2316,7 @@
                 el.classList.remove('playing');
             });
 
-            document.getElementById('playBtn').disabled = false;
-            document.getElementById('stopBtn').disabled = true;
-            document.getElementById('generateBtn').disabled = false;
+            updatePlaybackControls();
         }
     </script>
 </body>
