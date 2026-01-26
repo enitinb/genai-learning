@@ -8,9 +8,10 @@
 You'll follow the complete AI-DLC methodology from AWS to build a working task manager application.
 
 **AI-DLC Three Phases:**
-- **INCEPTION PHASE** (Mob Elaboration)
-- **CONSTRUCTION PHASE** (Mob Programming)  
-- **OPERATIONS PHASE** (AI-Driven Operations)
+- **INCEPTION PHASE** *(Human-led, AI-expanded)*
+- **CONSTRUCTION PHASE** *(AI-led, Human-validated)*
+- **OPERATIONS PHASE** *(AI-assisted, Human-governed)*
+
 
 **AI-DLC Personas:**
 - **Product Owner** (You - making business decisions)
@@ -40,7 +41,29 @@ We will work on building an application today. For every front end and backend c
 
 **Expected Result:** AI creates folder structure and confirms understanding.
 
+### Activity 1.5: Intent Definition (5 minutes)
+**Personas:** Product Owner + AI
+
+**Copy this exact prompt to your AI assistant:**
+
+```
+Intent:
+Build a simple personal task manager to help users add tasks and view their task list.
+
+Do not propose solutions yet.
+Acknowledge the intent and confirm understanding.
+```
+**Expected Result:**
+- AI acknowledges intent
+- No user stories, no design, no code
+
+> 📌 Why this matters:
+> AI-DLC always separates WHY (Intent) from WHAT (User Stories).
+
 ### Activity 2: User Stories Creation (30 minutes)
+
+> In AI-DLC, user stories are created after intent and act as behavioral contracts, not backlog items.
+
 **Personas:** Product Owner (Lead) + AI
 
 **Copy this exact prompt:**
@@ -61,6 +84,13 @@ Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the sam
 - `aidlc-docs/story-artifacts/mvp_user_stories.md`
 
 ### Activity 3: Units Decomposition (20 minutes)
+
+> In AI-DLC, Units define architectural boundaries first, so domain models are designed inside a unit, not across the entire system.
+
+**Note:** We intentionally use a single Unit for this workshop.
+> In real systems, AI-DLC often produces multiple Units.
+
+
 **Personas:** Developers (Lead) + Product Owner + AI
 
 **Copy this exact prompt:**
@@ -80,6 +110,9 @@ I approve. Proceed.
 - `aidlc-docs/plans/units_plan.md`
 - `aidlc-docs/design-artifacts/task_management_unit.md`
 
+
+> In AI-DLC, the following Construction activities will be executed as short, validation-driven Bolts rather than time-boxed sprints.
+
 ---
 
 ## CONSTRUCTION PHASE (1.5 hours)
@@ -92,7 +125,7 @@ I approve. Proceed.
 ```
 Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an aidlc-docs/design-artifacts/component_model_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
 
-Your Task: Refer to the user stories in the aidlc-docs/design-artifacts/task_management_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviours and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into aidlc-docs/design-artifacts/task_component_model.md file.
+Your Task: Refer to the user stories in the aidlc-docs/design-artifacts/task_management_unit.md file. Design the component model to implement all the user stories. This model shall contain all the components, the attributes, the behaviors and how the components interact to implement the user stories. Do not generate any codes yet. Write the component model into aidlc-docs/design-artifacts/task_component_model.md file.
 ```
 
 **When AI shows you the plan, respond exactly:**
@@ -120,7 +153,23 @@ Task: Refer to component design in the aidlc-docs/design-artifacts/task_componen
 - `taskManager/task.py`
 - `taskManager/task_service.py`
 
-### Activity 6: Architecture Planning (15 minutes)
+### Activity 6: Build APIs (15 minutes)
+**Personas:** Developers (Lead) + AI
+
+**Copy this exact prompt:**
+
+```
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+Task: Refer to the task_service.py under the taskManager/ folder. Create python flask apis for each of the service there.
+```
+
+**Expected Files Created:**
+- `api_build_plan.md`
+- `taskManager/app.py` (Flask application)
+- `taskManager/requirements.txt`
+
+### Activity 7: Architecture Planning (15 minutes)
 **Personas:** Developers (Lead) + AI
 
 **Copy this exact prompt:**
@@ -144,22 +193,6 @@ Once I approve the plan:
 - `DEPLOYMENT/cloudformation-template.yaml`
 - `DEPLOYMENT/deployment-guide.md`
 
-### Activity 7: Build APIs (15 minutes)
-**Personas:** Developers (Lead) + AI
-
-**Copy this exact prompt:**
-
-```
-Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
-
-Task: Refer to the task_service.py under the taskManager/ folder. Create python flask apis for each of the service there.
-```
-
-**Expected Files Created:**
-- `api_build_plan.md`
-- `taskManager/app.py` (Flask application)
-- `taskManager/requirements.txt`
-
 ---
 
 ## OPERATIONS PHASE (30 minutes)
@@ -167,7 +200,7 @@ Task: Refer to the task_service.py under the taskManager/ folder. Create python 
 ### Activity 8: Operations Phase Discussion
 **Personas:** Developers + Product Owner + AI
 
-Since the Operations Phase doesn't have specific prompts in Appendix A, have this discussion with your AI:
+In AI-DLC, Operations is not driven by static prompts but by continuous AI observation and recommendation loops, with humans approving corrective actions.
 
 **Ask your AI:**
 ```
