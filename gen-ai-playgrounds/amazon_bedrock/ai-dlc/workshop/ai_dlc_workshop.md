@@ -21,10 +21,23 @@ You'll follow the complete AI-DLC methodology from AWS to build a working task m
 ---
 
 ## Prerequisites
-- Basic Python knowledge
+- Basic Python knowledge (for this workshop)
 - Access to an AI assistant ([Kiro](https://kiro.dev/), [Claude Code](https://code.claude.com/docs/en/amazon-bedrock), [Cursor](https://cursor.com) etc. 
-- AWS account (free tier sufficient)
+- AWS account (free tier sufficient) or credits from the provider
 - Code editor
+
+### 📌 Language Note
+
+This workshop uses **Python** to keep the focus on AI-DLC concepts rather than
+language-specific complexity.
+
+The same AI-DLC flow, prompts, and artifacts apply equally well to **any
+programming language or framework** (for example: Java, JavaScript/TypeScript,
+Go, C#, etc.).
+
+You can substitute Python with the language of your choice without changing the
+methodology.
+
 
 ---
 
