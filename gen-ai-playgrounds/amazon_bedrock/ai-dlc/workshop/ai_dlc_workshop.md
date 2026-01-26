@@ -22,7 +22,7 @@ You'll follow the complete AI-DLC methodology from AWS to build a working task m
 
 ## Prerequisites
 - Basic Python knowledge
-- Access to an AI assistant (Claude, ChatGPT, etc.)
+- Access to an AI assistant ([Kiro](https://kiro.dev/), [Claude Code](https://code.claude.com/docs/en/amazon-bedrock), [Cursor](https://cursor.com) etc. 
 - AWS account (free tier sufficient)
 - Code editor
 
