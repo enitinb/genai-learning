@@ -304,7 +304,6 @@ Once I approve the plan:
 - Review the validation report and fix all identified issues, update the validation report.
 ```
 
-
 **Expected Files Created:**
 - `deployment_plan.md`
 - `DEPLOYMENT/cloudformation-template.yaml`
