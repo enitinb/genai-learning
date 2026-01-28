@@ -42,6 +42,31 @@ AI-DLC intentionally mirrors a familiar SDLC flow (requirements → design → b
 A **Bolt** is a short, validation-driven execution loop inside **Construction** (and often **Operations**) that produces a concrete, reviewable increment (code + tests + docs + validation).  
 Bolts are **not** time-boxed sprints — they are **scope-boxed** chunks with explicit acceptance and validation.
 
+### Bolt 0 — Inception Artifacts Bolt
+
+This workshop intentionally starts with **Bolt 0**, an Inception-focused Bolt.
+
+**Purpose**
+Establish shared intent, behavioral contracts, and architectural boundaries
+before any construction begins.
+
+**Scope**
+- Intent definition (WHY)
+- User story contracts (WHAT)
+- Unit boundary definition (WHERE work happens)
+
+**Why this is a Bolt**
+- Time-boxed and focused
+- Produces concrete, versioned artifacts
+- Planned by AI
+- Validated by Product Owner and Developers
+- Grants permission for subsequent construction Bolts
+
+**Outcome**
+A well-defined Unit that can be executed safely and rapidly through one or
+more Construction Bolts.
+
+
 ### Bolt Naming for This Tutorial
 - **Bolt 0 — Inception Artifacts Bolt** *(intent + stories + unit boundary)*
 - **Bolt 1 — Design Bolt** *(component model)*
