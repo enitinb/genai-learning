@@ -7,6 +7,9 @@
 
 You'll follow the complete AI-DLC methodology from AWS to build a working task manager application.
 
+AI-DLC intentionally mirrors a familiar SDLC flow (requirements → design → build → operate), but reassigns responsibility so AI accelerates planning and generation while humans govern decisions.
+
+
 **AI-DLC Three Phases:**
 - **INCEPTION PHASE** *(Human-led, AI-expanded)*
 - **CONSTRUCTION PHASE** *(AI-led, Human-validated)*
@@ -19,7 +22,8 @@ You'll follow the complete AI-DLC methodology from AWS to build a working task m
 ### INCEPTION (Product + Dev + AI)
 - **Product Owner** *(lead)* — sets intent, approves plans, accepts stories
 - **Developers** — validate feasibility, clarify constraints, confirm boundaries
-- **AI Assistant** — structures artifacts, drafts content, enforces traceability
+- **AI Assistant** — proposes plans, drafts artifacts, generates code/tests,and enforces traceability across the lifecycle (after human approval)
+
 
 ### CONSTRUCTION (Dev + QA + AI)
 - **Developers** *(lead)* — implement, review, integrate
@@ -30,6 +34,24 @@ You'll follow the complete AI-DLC methodology from AWS to build a working task m
 - **DevOps / Platform** *(lead)* — deployment, pipelines, observability, reliability
 - **Developers** — validate changes, own correctness, evolve safely
 - **AI Assistant** — correlates signals, recommends fixes, suggests improvements
+
+---
+
+## What is a “Bolt” in this Workshop?
+
+A **Bolt** is a short, validation-driven execution loop inside **Construction** (and often **Operations**) that produces a concrete, reviewable increment (code + tests + docs + validation).  
+Bolts are **not** time-boxed sprints — they are **scope-boxed** chunks with explicit acceptance and validation.
+
+### Bolt Naming for This Tutorial
+- **Bolt 0 — Inception Artifacts Bolt** *(intent + stories + unit boundary)*
+- **Bolt 1 — Design Bolt** *(component model)*
+- **Bolt 2 — Build Bolt** *(core code)*
+- **Bolt 3 — API Bolt** *(service interface)*
+- **Bolt 4 — Deployability Bolt** *(cloud plan + IaC + validation)*
+- **Bolt 5 — Operability Bolt** *(monitor/respond/scale patterns & runbooks)*
+
+> ✅ **Where Bolt execution “really starts”:** right after **Activity 3 (Units Decomposition)**, when the Unit boundary is agreed.  
+> From that point onward, each Construction activity is a distinct Bolt.
 
 ---
 
@@ -56,7 +78,8 @@ methodology.
 ## INCEPTION PHASE (1 hour)
 
 > **Story framing:** You’re in an inception meeting with Product + Dev + AI.  
-> The goal is to lock **intent**, then translate it into **behavioral contracts (user stories)**, then define the **Unit boundary** before anyone writes code.
+> The goal is to lock intent, translate it into behavioral contracts (user stories),and define the Unit boundary — before design or code begins.
+
 
 ### Activity 1: Setup (10 minutes)
 **Personas:** Product Owner + AI  
@@ -148,25 +171,32 @@ I approve. Proceed.
 ```
 
 
+
 **Expected Files Created:**
 - `aidlc-docs/plans/units_plan.md`
 - `aidlc-docs/design-artifacts/task_management_unit.md`
 
-> In AI-DLC, the following Construction activities will be executed as short, validation-driven **Bolts** rather than time-boxed sprints.  
-> ✅ **This is where we start working on a Bolt** — after the Unit boundary is defined and agreed.
+---
+
+## ✅ BOLT STARTS HERE
+
+> After **Unit boundary** is established, the team begins executing short, validation-driven Bolts.
 
 ---
 
 ## CONSTRUCTION PHASE (1.5 hours)
 
-> **Story framing:** Your team shifts into a build ritual: Dev + QA mindset + AI.  
-> AI generates quickly, but only after plans are approved, and humans validate continuously.
+### ⚡ Bolt 1 — Design Bolt: Component Model (25 minutes)
+**Maps to:** Activity 4  
+**Personas:** Developers (Lead) + QA mindset + AI  
+**Goal:** Create a component model so the AI can generate code *with guardrails*.
 
 ### Activity 4: Domain Model Creation (25 minutes)
 **Personas:** Developers (Lead) + AI  
-**What this prompt does:** Creates a component model (components, attributes, behaviors, interactions) **before** code is generated. This is your “design guardrail.”
+**What this prompt does:** Creates a component model (components, attributes, behaviors, interactions) **before** code is generated.
 
 **Copy this exact prompt:**
+
 
 
 ```
@@ -184,17 +214,24 @@ I approve the plan. Proceed. After completing each step, mark the checkbox in yo
 ```
 
 
+
 **Expected Files Created:**
 - `aidlc-docs/design-artifacts/component_model_plan.md`
 - `aidlc-docs/design-artifacts/task_component_model.md`
 
 ---
 
+### ⚡ Bolt 2 — Build Bolt: Core Code (35 minutes)
+**Maps to:** Activity 5  
+**Personas:** Developers (Lead) + QA mindset + AI  
+**Goal:** Generate core domain code from the model, then review/validate.
+
 ### Activity 5: Code Generation (35 minutes)
 **Personas:** Developers (Lead) + AI  
-**What this prompt does:** Generates the code directly from the approved component model, keeping scope intentionally small and traceable.
+**What this prompt does:** Generates the core implementation (Task + TaskService) directly from the approved component model.
 
 **Copy this exact prompt:**
+
 
 
 ```
@@ -204,6 +241,7 @@ Task: Refer to component design in the aidlc-docs/design-artifacts/task_componen
 ```
 
 
+
 **Expected Files Created:**
 - `aidlc-docs/plans/code_generation_plan.md`
 - `taskManager/task.py`
@@ -211,11 +249,17 @@ Task: Refer to component design in the aidlc-docs/design-artifacts/task_componen
 
 ---
 
+### ⚡ Bolt 3 — API Bolt: Make it Usable (15 minutes)
+**Maps to:** Activity 6  
+**Personas:** Developers (Lead) + QA mindset + AI  
+**Goal:** Expose functionality via Flask APIs so it can be tested end-to-end.
+
 ### Activity 6: Build APIs (15 minutes)
 **Personas:** Developers (Lead) + AI  
-**What this prompt does:** Turns the service into a usable interface (Flask APIs), making the Bolt output testable end-to-end.
+**What this prompt does:** Wraps the service into API endpoints and creates minimal dependencies for local execution.
 
 **Copy this exact prompt:**
+
 
 
 ```
@@ -225,6 +269,7 @@ Task: Refer to the task_service.py under the taskManager/ folder. Create python 
 ```
 
 
+
 **Expected Files Created:**
 - `api_build_plan.md`
 - `taskManager/app.py` (Flask application)
@@ -232,11 +277,17 @@ Task: Refer to the task_service.py under the taskManager/ folder. Create python 
 
 ---
 
+### ⚡ Bolt 4 — Deployability Bolt: Make it Cloud-Ready (15 minutes)
+**Maps to:** Activity 7  
+**Personas:** Developers + DevOps mindset + QA mindset + AI  
+**Goal:** Produce a deployment plan + CloudFormation + validation artifacts.
+
 ### Activity 7: Architecture Planning (15 minutes)
 **Personas:** Developers (Lead) + AI  
-**What this prompt does:** Produces a deployment plan and IaC artifacts so the work is production-oriented, not just “local demo code.”
+**What this prompt does:** Creates deployment plan + IaC + validation artifacts so the Bolt is production-oriented.
 
 **Copy this exact prompt:**
+
 
 
 ```
@@ -253,13 +304,6 @@ Once I approve the plan:
 - Review the validation report and fix all identified issues, update the validation report.
 ```
 
-**Expected Files Created:**
-- `deployment_plan.md`
-- `DEPLOYMENT/cloudformation-template.yaml`
-- `DEPLOYMENT/deployment-guide.md`
-
----
-
 
 **Expected Files Created:**
 - `deployment_plan.md`
@@ -270,16 +314,19 @@ Once I approve the plan:
 
 ## OPERATIONS PHASE (30 minutes)
 
-> **Story framing:** Your build is “done,” but your system is not “real” until it can be operated.  
-> Now DevOps + Dev + AI turns the Bolt output into something observable, stable, and scalable.
+### ⚡ Bolt 5 — Operability Bolt: Run It Like It’s Real (30 minutes)
+**Maps to:** Activity 8  
+**Personas:** DevOps / Platform + Developers + AI  
+**Goal:** Define how AI assists deploy/monitor/respond/scale and how humans govern decisions.
 
 ### Activity 8: Operations Phase Discussion
 **Personas:** DevOps / Platform + Developers + AI  
-**What this prompt does:** Walks through how AI assists ongoing operations (deploy/monitor/respond/scale) while humans govern decisions.
+**What this prompt does:** Walks through AI-assisted operations loops with human approval gates.
 
 In AI-DLC, Operations is not driven by static prompts but by continuous AI observation and recommendation loops, with humans approving corrective actions.
 
 **Ask your AI:**
+
 
 ```
 Now that we've built our task manager, let's discuss the Operations Phase. Based on what we've created, how would AI help with:
