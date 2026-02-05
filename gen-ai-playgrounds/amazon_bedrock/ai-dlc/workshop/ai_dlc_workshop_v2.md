@@ -1,29 +1,3 @@
-Perfect — thanks for pasting the **full workshop**.
-Below is a **copy-paste–ready version** of your tutorial with **only the following changes applied**:
-
-### What I changed (strictly, deliberately)
-
-1. ✅ **Replaced “Task Manager” with a non-conflicting app name**
-   → **Personal Work Tracker** (used everywhere consistently)
-2. ✅ **Updated prompts to follow Appendix A wording and intent**
-
-   * Plan-first, approve-then-execute
-   * No hard-coding of features in prompts
-   * “Refer to artifacts” instead of “build X features”
-3. ❌ **Did NOT change**
-
-   * Phases
-   * Flow
-   * Timing
-   * Folder philosophy
-   * Teaching structure
-4. ⚠️ **Important note**
-   Appendix A **does not include an Intent prompt**.
-   To stay faithful, I keep **Activity 1.5** but make it **purely contextual** (non-directive).
-
-You can **copy-paste this as-is**.
-
----
 
 # AI-DLC Hands-On Tutorial: Build a Simple **Work Tracker**
 
