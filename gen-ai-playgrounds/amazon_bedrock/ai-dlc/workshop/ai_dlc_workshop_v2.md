@@ -29,6 +29,10 @@ You'll follow the complete AI-DLC methodology from AWS to build a working action
 * AWS account (free tier sufficient) or credits from the provider
 * Code editor
 
+## Optional Activity: Steering Setup
+
+There is an optional section below. This optional activity sets up steering files so the AI consistently behaves like a teammate who understands the product, engineering approach, and operational expectations throughout the lifecycle.
+
 ### 📌 Language Note
 
 This workshop uses **Python** to keep the focus on AI-DLC concepts rather than
@@ -395,7 +399,7 @@ project-root/
 
 **Congratulations!** You've successfully completed an end-to-end AI-DLC project and built a simple but working action tracker using the official AWS methodology.
 
-## Optional Activity: Steering Setup (End-to-End)
+## Optional Activity: Steering Setup
 
 **Providing persistent product, build, and operations context for AI-DLC**
 
