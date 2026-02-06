@@ -86,8 +86,7 @@ Your Role: You are an expert product manager and are tasked with creating well d
 
 Your Task: Build user stories for the high-level requirement as described here: "Build a simple task manager that allows me to add new tasks and view my task list. Keep it simple with just these two core features." Save the final user stories in aidlc-docs/story-artifacts/mvp_user_stories.md file.
 ```
-
-**When AI shows you the plan, respond exactly:**
+**When AI shows you the plan, you can provide clarification to any questions from the AI in the user stories plan. After you have finished answering questions, respond exactly:**
 ```
 Yes, I like your plan as in the user_stories_plan.md. Now exactly follow the same plan. Interact with me as specified in the plan. Once you finish each step, mark the checkboxes in the plan.
 ```
